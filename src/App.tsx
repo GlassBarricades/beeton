@@ -1,10 +1,32 @@
 import './App.css'
-import { Title } from '@mantine/core'
+import {
+	Route,
+	RouterProvider,
+	createBrowserRouter,
+	createRoutesFromElements,
+} from 'react-router-dom'
+import MainAppLayout from './components/layout/MainAppLayout'
+import HomePage from './pages/HomePage'
+import CatalogPage from './pages/CatalogPage'
+import AboutPage from './pages/AboutPage'
+import ContactsPage from './pages/ContactsPage'
 
 function App() {
-  return (
-   <Title>title</Title>
-  )
+
+  const router = createBrowserRouter(
+		createRoutesFromElements(
+			<>
+				<Route path='/' element={<MainAppLayout />}>
+					<Route index element={<HomePage />} />
+          <Route path='catalog' element={<CatalogPage />} />
+          <Route path='about' element={<AboutPage />} />
+          <Route path='contacts' element={<ContactsPage />} />
+				</Route>
+			</>
+		)
+	)
+
+  return <RouterProvider router={router}></RouterProvider>
 }
 
 export default App
