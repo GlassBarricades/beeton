@@ -1,7 +1,8 @@
-import { AppShell, Burger, Group, Text, UnstyledButton } from '@mantine/core'
+import { AppShell, Burger, Group, Image, Text, UnstyledButton } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './MainAppLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
+import { ThemeChange } from '../UI/ThemeChange'
 
 const MainAppLayout = () => {
 	const [opened, { toggle, close }] = useDisclosure()
@@ -14,7 +15,7 @@ const MainAppLayout = () => {
 		]
 
     const linksItems = links.map(item => {
-        return <UnstyledButton onClick={close} to={item.link} component={NavLink} className={classes.control}>{item.title}</UnstyledButton>
+        return <UnstyledButton key={item.link} onClick={close} to={item.link} component={NavLink} className={classes.control}>{item.title}</UnstyledButton>
     })
 
 	return (
@@ -31,9 +32,10 @@ const MainAppLayout = () => {
 				<Group h='100%' px='md'>
 					<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
 					<Group justify='space-between' style={{ flex: 1 }}>
-						<Text>logo</Text>
+						<Image h={60} src='https://i.ibb.co/v3nQCtZ/loggo.png' alt='logo' />
 						<Group ml='xl' gap={0} visibleFrom='sm'>
 							{linksItems}
+							<ThemeChange />
 						</Group>
 					</Group>
 				</Group>

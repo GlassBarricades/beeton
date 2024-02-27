@@ -1,8 +1,12 @@
-import { Title } from "@mantine/core"
+import CatalogSection from "../components/sections/CatalogSection";
+import HeroSection from "../components/sections/HeroSection";
 
 const HomePage = () => {
     return (
-        <Title>Home</Title>
-    )
+			<>
+				<HeroSection />
+				<CatalogSection />
+			</>
+		)
 }
 export default HomePage;
