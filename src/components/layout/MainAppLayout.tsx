@@ -1,11 +1,14 @@
-import { AppShell, Burger, Group, Image, UnstyledButton } from '@mantine/core'
+import { AppShell, Burger, Group, Image, UnstyledButton, useMantineColorScheme } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './MainAppLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
 import { ThemeChange } from '../UI/ThemeChange'
 
 const MainAppLayout = () => {
+	const {colorScheme} = useMantineColorScheme()
 	const [opened, { toggle, close }] = useDisclosure()
+
+	console.log(colorScheme)
 
     const links = [
 			{ title: 'Главная', link: '/' },
@@ -32,7 +35,19 @@ const MainAppLayout = () => {
 				<Group h='100%' px='md'>
 					<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
 					<Group justify='space-between' style={{ flex: 1 }}>
-						<Image h={60} src='https://i.ibb.co/v3nQCtZ/loggo.png' alt='logo' />
+						{colorScheme === 'light' ? (
+							<Image
+								h={50}
+								src='https://i.ibb.co/Gv6ZYDZ/loggo.png'
+								alt='logo'
+							/>
+						) : (
+							<Image
+								h={50}
+								src='https://i.ibb.co/Bnjht4q/loggo-negate.png'
+								alt='logo'
+							/>
+						)}
 						<Group ml='xl' gap={0} visibleFrom='sm'>
 							{linksItems}
 							<ThemeChange />
@@ -43,6 +58,7 @@ const MainAppLayout = () => {
 
 			<AppShell.Navbar py='md' px={4}>
 				{linksItems}
+				<ThemeChange />
 			</AppShell.Navbar>
 
 			<AppShell.Main>

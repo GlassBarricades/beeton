@@ -13,3 +13,17 @@
     justify-content: center;
     align-items: center;
 }
+.heroLogo {
+    font-size: 5rem;
+
+    @media (max-width: $mantine-breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+.heroImage {
+    height: 80vh;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+    height: 50vh;
+  }
+}
