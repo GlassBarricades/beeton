@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group, Image, Text, UnstyledButton } from '@mantine/core'
+import { AppShell, Burger, Group, Image, UnstyledButton } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './MainAppLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
