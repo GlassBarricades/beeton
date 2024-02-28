@@ -1,7 +1,7 @@
 import { Card, Text } from '@mantine/core'
 import classes from './ImageCard.module.css'
 
-export function ImageCard(props) {
+export function ImageCard(props: any) {
 
 	return (
 		<Card
