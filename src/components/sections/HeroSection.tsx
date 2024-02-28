@@ -36,7 +36,6 @@ const HeroSection = () => {
 					<Grid.Col className={classes.heroCard}>
 						<Image
 							className={classes.heroImage}
-							radius='md'
 							src='https://amiel.club/uploads/posts/2022-10/1664873112_1-amiel-club-p-dekor-iz-betona-v-interere-pinterest-1.jpg'
 						/>
 						<div className={classes.heroSocialIcons}>
