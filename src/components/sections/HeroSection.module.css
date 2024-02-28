@@ -1,0 +1,15 @@
+.heroCard {
+    position: relative;
+}
+.heroSocialIcons {
+    bottom: 8px;
+    right: 8px;
+    height: 60px;
+    width: 170px;
+    background-color: #ffffff;
+    position: absolute;
+    border-radius: 35px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
