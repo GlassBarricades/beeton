@@ -27,3 +27,17 @@
     height: 50vh;
   }
 }
+.heroGradientOverlay {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+  right: 0;
+  @mixin dark {
+    background: linear-gradient(90deg, rgb(33, 37, 41) 0%, rgba(255,255,255,0) 50%);
+    
+  }
+  @mixin light {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+  }
+}

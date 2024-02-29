@@ -1,4 +1,5 @@
 import { Card, Text } from '@mantine/core'
+import { Link } from 'react-router-dom'
 import classes from './ImageCard.module.css'
 
 export function ImageCard(props: any) {
@@ -8,10 +9,8 @@ export function ImageCard(props: any) {
 			p='lg'
 			shadow='lg'
 			className={classes.card}
-			radius='md'
-			component='a'
-			href='https://mantine.dev/'
-			target='_blank'
+			component={Link}
+			to={`catalog/${props.link}`}
 		>
 			<div
 				className={classes.image}

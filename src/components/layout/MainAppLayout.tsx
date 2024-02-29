@@ -37,13 +37,13 @@ const MainAppLayout = () => {
 					<Group justify='space-between' style={{ flex: 1 }}>
 						{colorScheme === 'light' ? (
 							<Image
-								h={50}
+								h={40}
 								src='https://i.ibb.co/Gv6ZYDZ/loggo.png'
 								alt='logo'
 							/>
 						) : (
 							<Image
-								h={50}
+								h={40}
 								src='https://i.ibb.co/Bnjht4q/loggo-negate.png'
 								alt='logo'
 							/>

@@ -13,7 +13,7 @@ const CatalogSection = () => {
 			},
 			{
 				title: ' Кашпо большие',
-				link: '',
+				link: 'kashpo',
 				description: '',
 				image:
 					'https://1beton.info/wp-content/uploads/2019/09/betonnye-kashpo-svoimi-rukami.jpg',
@@ -69,7 +69,7 @@ const CatalogSection = () => {
 					verticalSpacing={{ base: 'md', sm: 'xl' }}
 				>
                     {CatalogData.map(item => {
-                        return <ImageCard title={item.title} image={item.image}/>
+                        return <ImageCard link={item.link} title={item.title} image={item.image}/>
                     })}
 				</SimpleGrid>
 			</Container>

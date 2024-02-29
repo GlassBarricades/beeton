@@ -38,6 +38,7 @@ const HeroSection = () => {
 							className={classes.heroImage}
 							src='https://amiel.club/uploads/posts/2022-10/1664873112_1-amiel-club-p-dekor-iz-betona-v-interere-pinterest-1.jpg'
 						/>
+						<div className={classes.heroGradientOverlay}></div>
 						<div className={classes.heroSocialIcons}>
 							<Group>
 								<ActionIcon variant='default' size='lg' aria-label='Settings'>
