@@ -20,7 +20,7 @@ const HeroSection = () => {
 	// const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`
 
 	return (
-		<Container my='md' fluid>
+		<Container fluid>
 			<SimpleGrid cols={{ base: 1, sm: 2 }} spacing='md'>
 				<Card>
 					<Center h={'100%'}>

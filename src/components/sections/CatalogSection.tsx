@@ -64,12 +64,12 @@ const CatalogSection = () => {
     return (
 			<Container my='md' mt='xl' fluid>
 				<SimpleGrid
-					cols={{ base: 1, sm: 2, lg: 4 }}
+					cols={{ base: 2, lg: 4 }}
 					spacing={{ base: 10, sm: 'xl' }}
 					verticalSpacing={{ base: 'md', sm: 'xl' }}
 				>
                     {CatalogData.map(item => {
-                        return <ImageCard link={item.link} title={item.title} image={item.image}/>
+                        return <ImageCard key={item.link} link={item.link} title={item.title} image={item.image}/>
                     })}
 				</SimpleGrid>
 			</Container>

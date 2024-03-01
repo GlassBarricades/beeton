@@ -25,7 +25,7 @@ export function ImageCard(props: any) {
 
 			<div className={classes.content}>
 				<div>
-					<Text size='lg' className={classes.title} fw={500}>
+					<Text className={classes.title} fw={500}>
 						{props.title}
 					</Text>
 				</div>

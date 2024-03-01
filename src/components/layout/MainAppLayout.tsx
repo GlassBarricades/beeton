@@ -29,7 +29,7 @@ const MainAppLayout = () => {
 				breakpoint: 'sm',
 				collapsed: { desktop: true, mobile: !opened },
 			}}
-			padding='md'
+			// padding="xs"
 		>
 			<AppShell.Header>
 				<Group h='100%' px='md'>

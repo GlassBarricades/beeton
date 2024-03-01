@@ -133,7 +133,7 @@ const CatalogGrid = () => {
 	return (
 		<Container my='md' mt='xl' fluid>
 			<SimpleGrid
-				cols={{ base: 1, sm: 2, lg: 4 }}
+				cols={{ base: 2, lg: 4 }}
 				spacing={{ base: 10, sm: 'xl' }}
 				verticalSpacing={{ base: 'md', sm: 'xl' }}
 			>
