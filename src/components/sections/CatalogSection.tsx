@@ -69,7 +69,7 @@ const CatalogSection = () => {
 					verticalSpacing={{ base: 'md', sm: 'xl' }}
 				>
                     {CatalogData.map(item => {
-                        return <ImageCard key={item.link} link={item.link} title={item.title} image={item.image}/>
+                        return <ImageCard key={item.link} link={item.link} image={item.image} title={item.title} />
                     })}
 				</SimpleGrid>
 			</Container>

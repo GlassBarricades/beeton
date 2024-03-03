@@ -2,7 +2,13 @@ import { Card, Text } from '@mantine/core'
 import { Link } from 'react-router-dom'
 import classes from './ImageCard.module.css'
 
-export function ImageCard(props: any) {
+type Props = {
+	link: string,
+	image: string,
+	title: string
+}
+
+export function ImageCard({link}: Props, {image}: Props, {title}: Props) {
 
 	return (
 		<Card
@@ -10,13 +16,13 @@ export function ImageCard(props: any) {
 			shadow='lg'
 			className={classes.card}
 			component={Link}
-			to={`catalog/${props.link}`}
+			to={`catalog/${link}`}
 		>
 			<div
 				className={classes.image}
 				style={{
 					backgroundImage:
-						`url(${props.image})`,
+						`url(${image})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover'
 				}}
@@ -26,7 +32,7 @@ export function ImageCard(props: any) {
 			<div className={classes.content}>
 				<div>
 					<Text className={classes.title} fw={500}>
-						{props.title}
+						{title}
 					</Text>
 				</div>
 			</div>
