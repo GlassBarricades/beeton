@@ -8,8 +8,9 @@ type Props = {
 	title: string
 }
 
-export function ImageCard({link}: Props, {image}: Props, {title}: Props) {
-
+const ImageCard = (
+	{ link, image, title }: Props
+) => {
 	return (
 		<Card
 			p='lg'
@@ -21,10 +22,9 @@ export function ImageCard({link}: Props, {image}: Props, {title}: Props) {
 			<div
 				className={classes.image}
 				style={{
-					backgroundImage:
-						`url(${image})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover'
+					backgroundImage: `url(${image})`,
+					backgroundPosition: 'center',
+					backgroundSize: 'cover',
 				}}
 			/>
 			<div className={classes.overlay} />
@@ -39,3 +39,4 @@ export function ImageCard({link}: Props, {image}: Props, {title}: Props) {
 		</Card>
 	)
 }
+export default ImageCard;

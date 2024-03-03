@@ -1,5 +1,5 @@
 import { Container, SimpleGrid } from "@mantine/core";
-import { ImageCard } from "../UI/ImageCard";
+import ImageCard from "../UI/ImageCard";
 
 const CatalogSection = () => {
 
@@ -12,7 +12,7 @@ const CatalogSection = () => {
 					'https://1beton.info/wp-content/uploads/2020/01/stol-iz-betona-kak-sdelat.jpg',
 			},
 			{
-				title: ' Кашпо большие',
+				title: 'Кашпо большие',
 				link: 'kashpo',
 				description: '',
 				image:
