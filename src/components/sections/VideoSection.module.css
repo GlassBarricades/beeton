@@ -3,7 +3,12 @@
     max-height: 500px;
     display: flex;
     flex-direction: column;
+    padding-left: 1rem;
 }
 .tabLabel {
     width: 100%;
+}
+.tab {
+    width: 100%;
+    border-radius: 0;
 }

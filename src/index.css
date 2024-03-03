@@ -67,5 +67,5 @@ button:focus-visible {
   }
 } */
 .active {
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-6));
 }
