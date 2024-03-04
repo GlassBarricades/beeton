@@ -114,6 +114,7 @@ const CatalogGrid = () => {
 		<Card
 			key={article.title}
 			component={Link}
+			radius={0}
 			p={0}
 			to='/'
 			className={classes.card}

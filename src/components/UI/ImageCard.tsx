@@ -15,6 +15,7 @@ const ImageCard = (
 		<Card
 			p='lg'
 			shadow='lg'
+			radius={0}
 			className={classes.card}
 			component={Link}
 			to={`catalog/${link}`}
