@@ -110,9 +110,9 @@ const mockdata = [
 ]
 
 const CatalogGrid = () => {
-	const cards = mockdata.map(article => (
+	const cards = mockdata.map((article, indx) => (
 		<Card
-			key={article.title}
+			key={indx}
 			component={Link}
 			radius={0}
 			p={0}
