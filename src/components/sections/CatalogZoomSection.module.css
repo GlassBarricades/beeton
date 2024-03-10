@@ -1,0 +1,36 @@
+.card {
+  /* transition: transform 150ms ease, box-shadow 150ms ease; */
+
+  /* &:hover {
+    transform: scale(1.01);
+    box-shadow: var(--mantine-shadow-md);
+  } */
+  @mixin hover {
+    & .image {
+      transform: scale(1.07);
+    }
+  }
+}
+
+.title {
+  font-family: "Greycliff CF", var(--mantine-font-family);
+  font-weight: bold;
+}
+.cardLeft {
+  height: 100%;
+  /* transition: transform 150ms ease, box-shadow 150ms ease; */
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: var(--mantine-shadow-md);
+  }
+}
+.image {
+  min-height: 90%;
+  inset: 0;
+  background-size: cover;
+  transition: transform 500ms ease;
+}
+.gridWrap {
+  height: 100%;
+}
