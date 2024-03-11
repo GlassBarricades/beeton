@@ -11,6 +11,7 @@ import CatalogPage from "./pages/CatalogPage";
 import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
 import CategoryPage from "./pages/CategoryPage";
+import InfoPage from "./pages/InfoPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -22,6 +23,7 @@ function App() {
 		  <Route path="catalog/:category" element={<CategoryPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contacts" element={<ContactsPage />} />
+          <Route path="info" element={<InfoPage />} />
         </Route>
       </>
     )

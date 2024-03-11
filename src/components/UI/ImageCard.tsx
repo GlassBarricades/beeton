@@ -4,13 +4,13 @@ import classes from "./ImageCard.module.css";
 import { Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
 
-type Props = {
+type TProps = {
   link: string;
   image: string;
   title: string;
 };
 
-const ImageCard = ({ link, image, title }: Props) => {
+const ImageCard = ({ link, image, title }: TProps) => {
   const [opened, setOpened] = useState(false);
   useEffect(() => {
     setOpened(true);

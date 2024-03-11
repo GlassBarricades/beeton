@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group, Image, UnstyledButton, useMantineColorScheme } from '@mantine/core'
+import { AppShell, Burger, Button, Group, Image, UnstyledButton, useMantineColorScheme } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './MainAppLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
@@ -8,13 +8,12 @@ const MainAppLayout = () => {
 	const {colorScheme} = useMantineColorScheme()
 	const [opened, { toggle, close }] = useDisclosure()
 
-	console.log(colorScheme)
-
     const links = [
 			{ title: 'Главная', link: '/' },
 			{ title: 'О нас', link: '/about' },
 			{ title: 'Каталог', link: '/catalog' },
 			{ title: 'Контакты', link: '/contacts' },
+			{ title: 'Информация', link: '/info' }
 		]
 
     const linksItems = links.map(item => {
@@ -50,6 +49,7 @@ const MainAppLayout = () => {
 						)}
 						<Group ml='xl' gap={0} visibleFrom='sm'>
 							{linksItems}
+							<Button ml="md" variant="default" radius={0} size="md">Заказать звонок</Button>
 							<ThemeChange />
 						</Group>
 					</Group>

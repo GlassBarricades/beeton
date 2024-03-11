@@ -1,5 +1,4 @@
 import {
-  Card,
   Center,
   Container,
   Grid,
@@ -24,7 +23,6 @@ const HeroSection = () => {
   return (
     <Container fluid>
       <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
-        <Card>
           <Center h={"100%"}>
             <Stack>
               <Transition
@@ -53,7 +51,6 @@ const HeroSection = () => {
               </Transition>
             </Stack>
           </Center>
-        </Card>
         <Grid gutter="md">
           <Grid.Col className={classes.heroCard}>
             <Transition

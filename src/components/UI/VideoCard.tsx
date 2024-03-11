@@ -1,13 +1,13 @@
 import { Card, Image, Text, Group } from '@mantine/core';
 import classes from './VideoCard.module.css';
 
-type Props = {
+type TProps = {
 	image: String,
 	title: String,
 	subTitle: String
 }
 
-const VideoCard = ({image, title, subTitle}: Props) => {
+const VideoCard = ({image, title, subTitle}: TProps) => {
   return (
 		<Card className={classes.card}>
 			<Group wrap='nowrap' gap={0}>

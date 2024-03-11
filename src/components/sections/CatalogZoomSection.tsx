@@ -82,7 +82,7 @@ const CatalogZoomSection = () => {
 	))
 
   return (
-    <Container fluid>
+    <Container fluid mt="xl">
     <Grid>
       <Grid.Col span={{ base: 12, md: 6 }} order={{ base: 2, md: 1 }}>
         <SimpleGrid cols={{ base: 3, md: 3 }}>
@@ -98,7 +98,7 @@ const CatalogZoomSection = () => {
 			to='/'
 			className={classes.cardLeft}
 		>
-				<Image className={classes.image} src='https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80' />
+				<Image className={classes.image} src='https://kakpostroit.su/wp-content/uploads/2019/02/1551042989_kashpo_iz_czementa_1551042974_5c73099eef0bb.jpg' />
 			<Group p='md' justify='space-between'>
 				<Text className={classes.title}>Название продукта</Text>
 				<Text c='dimmed' size='xs' tt='uppercase' fw={700}>
