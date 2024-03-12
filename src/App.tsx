@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<MainAppLayout />}>
           <Route index element={<HomePage />} />
           <Route path="catalog" element={<CatalogPage />} />
-		  <Route path="catalog/:category" element={<CategoryPage />} />
+          <Route path="catalog/:category" element={<CategoryPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contacts" element={<ContactsPage />} />
           <Route path="info" element={<InfoPage />} />
