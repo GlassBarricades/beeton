@@ -9,6 +9,7 @@ import {
   Image,
   ActionIcon,
   Group,
+  Paper,
 } from "@mantine/core";
 import classes from "./HeroSection.module.css";
 import { BrandTelegram, BrandInstagram, BrandTiktok } from "tabler-icons-react";
@@ -68,7 +69,7 @@ const HeroSection = () => {
               )}
             </Transition>
             <div className={classes.heroGradientOverlay}></div>
-            <div className={classes.heroSocialIcons}>
+            <Paper className={classes.heroSocialIcons}>
               <Group>
                 <ActionIcon variant="default" size="lg" aria-label="Settings">
                   <BrandTelegram style={{ width: "70%", height: "70%" }} />
@@ -80,7 +81,7 @@ const HeroSection = () => {
                   <BrandTiktok style={{ width: "70%", height: "70%" }} />
                 </ActionIcon>
               </Group>
-            </div>
+            </Paper>
           </Grid.Col>
         </Grid>
       </SimpleGrid>

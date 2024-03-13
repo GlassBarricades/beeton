@@ -13,7 +13,8 @@ const MainAppLayout = () => {
 			{ title: 'О нас', link: '/about' },
 			{ title: 'Каталог', link: '/catalog' },
 			{ title: 'Контакты', link: '/contacts' },
-			{ title: 'Информация', link: '/info' }
+			{ title: 'Информация', link: '/info' },
+			{ title: 'Админка', link: '/admin' },
 		]
 
     const linksItems = links.map(item => {

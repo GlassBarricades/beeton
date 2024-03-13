@@ -9,6 +9,8 @@ export function ThemeChange() {
     <ActionIcon
       ml="md"
       variant="outline"
+      size="lg"
+      radius={0}
       color={dark ? "yellow" : "blue"}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
