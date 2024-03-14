@@ -1,13 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+interface IEditData {
+	edit: boolean
+	editUuid: string
+	editData: {
+		name?: string
+		link?: string
+		position?: number
+		image?: string
+		visible?: boolean
+		delivery?: boolean
+	}
+	editModal: boolean,
+}
+
+const initialState: IEditData = {
+	edit: false,
+	editUuid: '',
+	editData: {},
+	editModal: false,
+}
+
 const editSlice = createSlice({
 	name: 'edit',
-	initialState: {
-		edit: false,
-		editUuid: '',
-		editData: {},
-		editModal: false,
-	},
+	initialState: initialState,
 	reducers: {
 		edited(state, action) {
 			state.edit = true

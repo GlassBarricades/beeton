@@ -2,7 +2,7 @@ import { set, ref } from 'firebase/database'
 import { db } from '../firebase'
 import { uid } from 'uid'
 
-const writeToDatabase = (link, data, reset, close, withId) => {
+const writeToDatabase = (link: string, data: {}, reset: () => void, close: () => void, withId: boolean): void => {
 	const uuid = uid()
 	if (withId) {
 		set(ref(db, `${link}${uuid}`), {

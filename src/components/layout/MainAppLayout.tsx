@@ -1,11 +1,11 @@
-import { AppShell, Burger, Button, Group, Image, UnstyledButton, useMantineColorScheme } from '@mantine/core'
+import { AppShell, Burger, Button, Group, UnstyledButton } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './MainAppLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
 import { ThemeChange } from '../UI/ThemeChange'
+import Logo from '../UI/Logo'
 
 const MainAppLayout = () => {
-	const {colorScheme} = useMantineColorScheme()
 	const [opened, { toggle, close }] = useDisclosure()
 
     const links = [
@@ -35,19 +35,7 @@ const MainAppLayout = () => {
 				<Group h='100%' px='md'>
 					<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
 					<Group justify='space-between' style={{ flex: 1 }}>
-						{colorScheme === 'light' ? (
-							<Image
-								h={40}
-								src='https://i.ibb.co/Gv6ZYDZ/loggo.png'
-								alt='logo'
-							/>
-						) : (
-							<Image
-								h={40}
-								src='https://i.ibb.co/Bnjht4q/loggo-negate.png'
-								alt='logo'
-							/>
-						)}
+						<Logo />
 						<Group ml='xl' gap={0} visibleFrom='sm'>
 							{linksItems}
 							<Button ml="md" variant="default" radius={0} size="md">Заказать звонок</Button>

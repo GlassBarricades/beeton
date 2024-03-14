@@ -15,6 +15,7 @@ import InfoPage from './pages/InfoPage'
 import LoginPage from './pages/LoginPage'
 import RequireAuth from './hoc/RequireAuth'
 import AdminLayout from './components/layout/AdminLayout'
+import AdminCategoriesPage from './pages/admin/AdminCategoriesPage'
 
 function App() {
 	const router = createBrowserRouter(
@@ -36,6 +37,14 @@ function App() {
 						</RequireAuth>
 					}
 				>
+					<Route
+						index
+						element={
+							<RequireAuth>
+								<AdminCategoriesPage />
+							</RequireAuth>
+						}
+					/>
 				</Route>
 				<Route path={'/login'} element={<LoginPage />} />
 			</>
