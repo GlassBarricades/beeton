@@ -2,13 +2,13 @@ import { useForm, isNotEmpty } from '@mantine/form'
 import { TextInput, NumberInput, Group, Checkbox, Button } from '@mantine/core'
 import writeToDatabase from '../../helpers/writeToDataBase'
 import submitChangeDataBase from '../../helpers/submitChangeDataBase'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import { closeModal } from '../../store/editSlice'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 
 const AdminCategoryForm = () => {
-	const { categoryElement } = useParams()
+	// const { categoryElement } = useParams()
 	const edit = useAppSelector(state => state.edit.edit)
 	const editData = useAppSelector(state => state.edit.editData)
 	const editUuid = useAppSelector(state => state.edit.editUuid)
@@ -56,7 +56,7 @@ const AdminCategoryForm = () => {
 				!edit
 					? form.onSubmit(values =>
 							writeToDatabase(
-								`/${categoryElement}/${values.link}`,
+								`/catalog/${values.link}`,
 								{ ...values },
 								form.reset,
 								() => dispatch(closeModal()),
@@ -66,7 +66,7 @@ const AdminCategoryForm = () => {
 					: form.onSubmit(values => {
 							submitChangeDataBase(
 								values,
-								`/${categoryElement}/${values.link}`,
+								`/catalog/${values.link}`,
 								editUuid,
 								form.reset,
 								() => dispatch(closeModal())
