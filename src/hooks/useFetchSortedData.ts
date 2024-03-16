@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react'
 import { db } from '../firebase'
 import { ref, onValue } from 'firebase/database'
 
-const useFetchSortedData = (url, field) => {
-	const [data, setData] = useState([])
-	const [loading, setLoading] = useState(false)
+// type IProps = {
+// 	url: string
+// 	field: string
+// }
+
+const useFetchSortedData = ({ url, field }: { url: string; field: string }) => {
+	const [data, setData] = useState<any>([])
+	const [loading, setLoading] = useState<boolean>(false)
 
 	useEffect(() => {
 		if (url) {
@@ -12,15 +17,15 @@ const useFetchSortedData = (url, field) => {
 		}
 	}, [url])
 
-	function fetchData(url) {
+	function fetchData(url: string) {
 		setLoading(true)
 		onValue(ref(db, url), snapshot => {
 			setData([])
-			const dataValue = Object.values(snapshot.val()).sort((a, b) =>
+			const dataValue = Object.values(snapshot.val()).sort((a: any, b: any) =>
 				a[field] > b[field] ? 1 : -1
 			)
 			if (dataValue !== null) {
-				dataValue.map(item => setData(oldArray => [...oldArray, item]))
+				dataValue.map(item => setData((oldArray: any) => [...oldArray, item]))
 				setLoading(false)
 			}
 		})
