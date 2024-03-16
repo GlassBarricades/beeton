@@ -8,6 +8,7 @@ interface IEditData {
 		link?: string
 		position?: number
 		image?: string
+		description?: string
 		visible?: boolean
 		delivery?: boolean
 	}

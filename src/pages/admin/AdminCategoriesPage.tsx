@@ -11,9 +11,9 @@ const AdminCategoriesPage = () => {
 			<AdminModal>
 				<AdminCategoryForm />
 			</AdminModal>
-			<Group justify='space-between'>
+			<Group justify='space-between' mt="md">
 				<Title>Категории</Title>
-				<Button onClick={() => dispatch(openModal())}>Добавить элемент</Button>
+				<Button variant="default" radius={0} size="md" onClick={() => dispatch(openModal())}>Добавить элемент</Button>
 			</Group>
 		</Container>
 	)

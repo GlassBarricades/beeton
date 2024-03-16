@@ -1,5 +1,5 @@
 import { useForm, isNotEmpty } from '@mantine/form'
-import { TextInput, NumberInput, Group, Checkbox, Button } from '@mantine/core'
+import { TextInput, NumberInput, Group, Checkbox, Button, Textarea } from '@mantine/core'
 import writeToDatabase from '../../helpers/writeToDataBase'
 import submitChangeDataBase from '../../helpers/submitChangeDataBase'
 // import { useParams } from 'react-router-dom'
@@ -19,6 +19,7 @@ const AdminCategoryForm = () => {
 		link: string
 		position: number
 		image: string
+		description: string
 		visible: boolean
 		delivery: boolean
 	}
@@ -30,6 +31,7 @@ const AdminCategoryForm = () => {
 				link: editData.link,
 				position: editData.position,
 				image: editData.image,
+				description: editData.description,
 				visible: editData.visible,
 				delivery: editData.delivery,
 			})
@@ -42,6 +44,7 @@ const AdminCategoryForm = () => {
 		link: '',
 		position: 0,
 		image: '',
+		description: '',
 		visible: false,
 		delivery: false,
 	},
@@ -97,21 +100,30 @@ const AdminCategoryForm = () => {
 				placeholder='Картинка'
 				{...form.getInputProps('image')}
 			/>
+			<Textarea
+				placeholder='Описание'
+				label='Описание'
+				autosize
+				minRows={3}
+				{...form.getInputProps('description')}
+			/>
 			<Group>
 				<Checkbox
 					mt='xs'
 					size='md'
+					variant="outline"
 					label='Скрыть'
 					{...form.getInputProps('visible', { type: 'checkbox' })}
 				/>
 				<Checkbox
 					mt='xs'
 					size='md'
+					variant="outline"
 					label='Без доставки'
 					{...form.getInputProps('delivery', { type: 'checkbox' })}
 				/>
 			</Group>
-			<Button mt='md' type='submit'>
+			<Button mt='md' type='submit' variant="default" radius={0} size="md">
 				{edit ? 'Сохранить' : 'Отправить'}
 			</Button>
 		</form>
