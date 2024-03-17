@@ -22,6 +22,7 @@ const AdminLayout = () => {
 	)
 
 	const linksItemsMain = categories.map((item: any) => {
+		console.log(item)
         return <UnstyledButton key={item.link} to={item.link} component={NavLink} className={classes.control}>{item.name}</UnstyledButton>
     })
 
@@ -89,6 +90,13 @@ const AdminLayout = () => {
 			</AppShell.Header>
 
 			<AppShell.Navbar py='md' px={4}>
+				<UnstyledButton
+					to="/admin"
+					component={NavLink}
+					className={classes.control}
+				>
+					Категории
+				</UnstyledButton>
 				{linksItemsMain}
 			</AppShell.Navbar>
 
