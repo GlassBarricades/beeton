@@ -15,7 +15,7 @@ const AdminCategoriesPage = () => {
 	)
 
 	const rows = categories.map((element: any) => (
-		<AdminRow key={element.uuid} element={element} variant='category' />
+		<AdminRow key={element.uuid} element={element} />
 	))
 
 	return (

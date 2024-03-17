@@ -16,6 +16,7 @@ import LoginPage from './pages/LoginPage'
 import RequireAuth from './hoc/RequireAuth'
 import AdminLayout from './components/layout/AdminLayout'
 import AdminCategoriesPage from './pages/admin/AdminCategoriesPage'
+import AdminProductsPage from './pages/admin/AdminProductsPage'
 
 function App() {
 	const router = createBrowserRouter(
@@ -42,6 +43,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminCategoriesPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path=':category'
+						element={
+							<RequireAuth>
+								<AdminProductsPage />
 							</RequireAuth>
 						}
 					/>

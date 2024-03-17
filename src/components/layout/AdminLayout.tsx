@@ -7,14 +7,23 @@ import {
 	useMantineColorScheme,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import classes from './MainAppLayout.module.css'
+import classes from './AdminLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
 import { ThemeChange } from '../UI/ThemeChange'
+import useFetchSortedData from '../../hooks/useFetchSortedData'
 
 const AdminLayout = () => {
 	const { colorScheme } = useMantineColorScheme()
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure()
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
+	const [categories] = useFetchSortedData(
+		{ url: '/catalog', field: 'position' },
+		
+	)
+
+	const linksItemsMain = categories.map((item: any) => {
+        return <UnstyledButton key={item.link} to={item.link} component={NavLink} className={classes.control}>{item.name}</UnstyledButton>
+    })
 
 	const links = [
 		{ title: '<Вернуться на сайт', link: '/' },
@@ -80,7 +89,7 @@ const AdminLayout = () => {
 			</AppShell.Header>
 
 			<AppShell.Navbar py='md' px={4}>
-				123
+				{linksItemsMain}
 			</AppShell.Navbar>
 
 			<AppShell.Main>

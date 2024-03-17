@@ -10,26 +10,29 @@ interface IProps {
 }
 
 const AdminPanelSettings = ({ element, deleteLink }: IProps) => {
-	console.log(deleteLink)
 	const dispatch = useDispatch()
 	const colorScheme = useMantineColorScheme()
 	return (
 		<Group>
 			<ActionIcon
 				mt='xs'
+				size="lg"
+				radius={0}
 				variant={colorScheme.colorScheme === 'dark' ? 'outline' : 'default'}
 				onClick={() => dispatch(edited(element))}
 				color={colorScheme.colorScheme === 'dark' ? 'yellow.5' : undefined}
 			>
-				<Pencil size='1rem' />
+				<Pencil size='1.2rem' />
 			</ActionIcon>
 			<ActionIcon
 				mt='xs'
+				size="lg"
+				radius={0}
 				variant={colorScheme.colorScheme === 'dark' ? 'outline' : 'default'}
 				onClick={() => deleteDataBase(deleteLink)}
 				color={colorScheme.colorScheme === 'dark' ? 'yellow.5' : undefined}
 			>
-				<Trash size='1rem' />
+				<Trash size='1.2rem' />
 			</ActionIcon>
 		</Group>
 	)
