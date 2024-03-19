@@ -22,7 +22,6 @@ const AdminLayout = () => {
 	)
 
 	const linksItemsMain = categories.map((item: any) => {
-		console.log(item)
         return <UnstyledButton key={item.link} to={item.link} component={NavLink} className={classes.control}>{item.name}</UnstyledButton>
     })
 

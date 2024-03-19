@@ -5,9 +5,10 @@ import { memo } from 'react'
 
 interface IProps {
 	element: any
+	deleteLink: any
 }
 
-const AdminRow = memo(({ element }: IProps) => {
+const AdminRow = memo(({ element, deleteLink }: IProps) => {
 	// const { categoryElement, adminElement } = useParams()
 	return (
 		<Table.Tr>
@@ -78,7 +79,7 @@ const AdminRow = memo(({ element }: IProps) => {
 				<AdminPanelSettings
 					element={element}
 					deleteLink={
-						`/catalog/${element.link}`
+						deleteLink
 						// variant === 'main'
 						// 	? `/menu/${adminElement}/${element.link}`
 						// 	: variant === 'units'

@@ -15,7 +15,7 @@ const AdminCategoriesPage = () => {
 	)
 
 	const rows = categories.map((element: any) => (
-		<AdminRow key={element.uuid} element={element} />
+		<AdminRow key={element.uuid} element={element} deleteLink={`/catalog/${element.link}`}/>
 	))
 
 	return (
