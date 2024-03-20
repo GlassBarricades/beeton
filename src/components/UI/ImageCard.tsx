@@ -1,5 +1,5 @@
 import { Card, Text } from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classes from "./ImageCard.module.css";
 import { Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
@@ -11,6 +11,8 @@ type TProps = {
 };
 
 const ImageCard = ({ link, image, title }: TProps) => {
+  let location = useLocation();
+  console.log(location.pathname)
   const [opened, setOpened] = useState(false);
   useEffect(() => {
     setOpened(true);
@@ -30,7 +32,7 @@ const ImageCard = ({ link, image, title }: TProps) => {
           radius={0}
           className={classes.card}
           component={Link}
-          to={`catalog/${link}`}
+          to={location.pathname === '/' ? `catalog/${link}` : `${link}`}
         >
           <div
             className={classes.image}

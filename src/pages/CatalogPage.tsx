@@ -1,8 +1,8 @@
-import { Title } from "@mantine/core"
+import CatalogSection from "../components/sections/CatalogSection";
 
 const CatalogPage = () => {
     return (
-        <Title>Catalog</Title>
+        <CatalogSection />
     )
 }
 export default CatalogPage;

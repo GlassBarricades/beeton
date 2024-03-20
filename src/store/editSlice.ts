@@ -9,6 +9,7 @@ interface IEditData {
 		position?: number
 		image?: string
 		description?: string
+		imageArr?: string[]
 		visible?: boolean
 		delivery?: boolean
 	}
