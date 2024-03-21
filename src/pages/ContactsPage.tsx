@@ -1,8 +1,8 @@
-import { Title } from "@mantine/core"
+import AdminTextEditor from "../components/admin/AdminTextEditor";
 
 const ContactsPage = () => {
     return (
-        <Title>Contacts</Title>
+        <AdminTextEditor />
     )
 }
 export default ContactsPage;

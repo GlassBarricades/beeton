@@ -3,6 +3,7 @@ import '@mantine/core/styles.css'
 import App from './App'
 import '@mantine/carousel/styles.css'
 import './index.css'
+import '@mantine/tiptap/styles.css';
 import store, { persistor } from './store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { createTheme, MantineProvider } from '@mantine/core'

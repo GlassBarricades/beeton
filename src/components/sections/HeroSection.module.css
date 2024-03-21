@@ -28,9 +28,9 @@
 }
 .heroGradientOverlay {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 8px;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
   @mixin dark {
     background: linear-gradient(90deg, rgb(33, 37, 41) 0%, rgba(255,255,255,0) 50%);

@@ -14,6 +14,14 @@ import { useParams } from "react-router-dom";
 import { closeModal } from "../../store/editSlice";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import { Link, RichTextEditor } from "@mantine/tiptap";
+import { useEditor } from "@tiptap/react";
+import Highlight from "@tiptap/extension-highlight";
+import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
+import TextAlign from "@tiptap/extension-text-align";
+import Superscript from "@tiptap/extension-superscript";
+import SubScript from "@tiptap/extension-subscript";
 
 const AdminProductsForm: React.FC = () => {
   const { category } = useParams();
@@ -28,7 +36,8 @@ const AdminProductsForm: React.FC = () => {
     position: number;
     image: string;
     description: string;
-	imageArr: string[]
+    descrUp: string;
+    imageArr: string[];
     visible: boolean;
     delivery: boolean;
   }
@@ -41,7 +50,8 @@ const AdminProductsForm: React.FC = () => {
         position: editData.position,
         image: editData.image,
         description: editData.description,
-		imageArr: editData.imageArr,
+        descrUp: editData.descrUp,
+        imageArr: editData.imageArr,
         visible: editData.visible,
         delivery: editData.delivery,
       });
@@ -55,7 +65,8 @@ const AdminProductsForm: React.FC = () => {
       position: 0,
       image: "",
       description: "",
-	  imageArr: [],
+      descrUp: '',
+      imageArr: [],
       visible: false,
       delivery: false,
     },
@@ -63,6 +74,27 @@ const AdminProductsForm: React.FC = () => {
       link: isNotEmpty("Поле не должно быть пустым"),
     },
   });
+
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Underline,
+      Link,
+      Superscript,
+      SubScript,
+      Highlight,
+      TextAlign.configure({ types: ["heading", "paragraph"] }),
+    ],
+    content: form.values["descrUp"],
+    onUpdate({ editor }) {
+      form.setFieldValue("descrUp", editor.getHTML());
+    },
+    onCreate({ editor }) {
+      editor.commands.insertContent(editData.descrUp)
+    },
+  });
+
+  console.log(form.values)
 
   return (
     <form
@@ -118,11 +150,59 @@ const AdminProductsForm: React.FC = () => {
         minRows={3}
         {...form.getInputProps("description")}
       />
+      <RichTextEditor editor={editor}>
+        <RichTextEditor.Toolbar sticky stickyOffset={60}>
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.Bold />
+            <RichTextEditor.Italic />
+            <RichTextEditor.Underline />
+            <RichTextEditor.Strikethrough />
+            <RichTextEditor.ClearFormatting />
+            <RichTextEditor.Highlight />
+            <RichTextEditor.Code />
+          </RichTextEditor.ControlsGroup>
+
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.H1 />
+            <RichTextEditor.H2 />
+            <RichTextEditor.H3 />
+            <RichTextEditor.H4 />
+          </RichTextEditor.ControlsGroup>
+
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.Blockquote />
+            <RichTextEditor.Hr />
+            <RichTextEditor.BulletList />
+            <RichTextEditor.OrderedList />
+            <RichTextEditor.Subscript />
+            <RichTextEditor.Superscript />
+          </RichTextEditor.ControlsGroup>
+
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.Link />
+            <RichTextEditor.Unlink />
+          </RichTextEditor.ControlsGroup>
+
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.AlignLeft />
+            <RichTextEditor.AlignCenter />
+            <RichTextEditor.AlignJustify />
+            <RichTextEditor.AlignRight />
+          </RichTextEditor.ControlsGroup>
+
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.Undo />
+            <RichTextEditor.Redo />
+          </RichTextEditor.ControlsGroup>
+        </RichTextEditor.Toolbar>
+
+        <RichTextEditor.Content />
+      </RichTextEditor>
       <TagsInput
         label="Картинки"
         allowDuplicates
         data={[]}
-		{...form.getInputProps("imageArr")}
+        {...form.getInputProps("imageArr")}
       />
       <Group>
         <Checkbox
