@@ -27,7 +27,7 @@ const AdminRow = memo(({ element, deleteLink }: IProps) => {
 			variant === 'pizza' ||
 			variant === 'promo' ? ( */}
 				<Table.Td>
-					<Image w={50} src={element.image} alt={element.name} />
+					<Image w={50} src={element.image ? element.image : element.imageArr[0]} alt={element.name} />
 				</Table.Td>
 			{/* ) : undefined} */}
 

@@ -8,9 +8,9 @@ interface IProps {
 
 const CatalogHero = ({ name, image }: IProps) => {
   return (
-    <Box mih={"40vh"} mx="auto">
-      <BackgroundImage mih={"40vh"} src={image} radius={0}>
-        <Center p="md" mih={"40vh"}>
+    <Box mih={"30vh"} mx="auto">
+      <BackgroundImage mih={"30vh"} src={image} radius={0}>
+        <Center p="md" mih={"30vh"}>
           <Title c="white" className={classes.title}>{name}</Title>
         </Center>
       </BackgroundImage>

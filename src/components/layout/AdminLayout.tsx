@@ -90,11 +90,18 @@ const AdminLayout = () => {
 
 			<AppShell.Navbar py='md' px={4}>
 				<UnstyledButton
-					to="/admin"
+					to="/admin/category"
 					component={NavLink}
 					className={classes.control}
 				>
 					Категории
+				</UnstyledButton>
+				<UnstyledButton
+					to="/admin/info"
+					component={NavLink}
+					className={classes.control}
+				>
+					Информация
 				</UnstyledButton>
 				{linksItemsMain}
 			</AppShell.Navbar>

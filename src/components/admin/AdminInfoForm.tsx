@@ -5,13 +5,11 @@ import {
   Group,
   Checkbox,
   Button,
-  TagsInput,
   Grid,
   InputWrapper,
 } from "@mantine/core";
 import writeToDatabase from "../../helpers/writeToDataBase";
 import submitChangeDataBase from "../../helpers/submitChangeDataBase";
-import { useParams } from "react-router-dom";
 import { closeModal } from "../../store/editSlice";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -24,8 +22,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 
-const AdminProductsForm: React.FC = () => {
-  const { category } = useParams();
+const AdminInfoForm: React.FC = () => {
   const edit = useAppSelector((state) => state.edit.edit);
   const editData = useAppSelector((state) => state.edit.editData);
   const editUuid = useAppSelector((state) => state.edit.editUuid);
@@ -36,8 +33,6 @@ const AdminProductsForm: React.FC = () => {
     link: string;
     position: number;
     description: string;
-    imageArr: string[];
-	price: string;
     visible: boolean;
   }
 
@@ -48,8 +43,6 @@ const AdminProductsForm: React.FC = () => {
         link: editData.link,
         position: editData.position,
         description: editData.description,
-        imageArr: editData.imageArr,
-		price: editData.price,
         visible: editData.visible,
       });
     }
@@ -61,8 +54,6 @@ const AdminProductsForm: React.FC = () => {
       link: "",
       position: 0,
       description: "",
-	  price: "",
-      imageArr: [],
       visible: false,
     },
     validate: {
@@ -97,7 +88,7 @@ const AdminProductsForm: React.FC = () => {
 				!edit
 					? form.onSubmit(values =>
 							writeToDatabase(
-								`/catalog/${category}/products/${values.link}`,
+								`/information/${values.link}`,
 								{ ...values },
 								form.reset,
 								() => dispatch(closeModal()),
@@ -107,7 +98,7 @@ const AdminProductsForm: React.FC = () => {
 					: form.onSubmit(values => {
 							submitChangeDataBase(
 								values,
-								`/catalog/${category}/products/${values.link}`,
+								`/information/${values.link}`,
 								editUuid,
 								form.reset,
 								() => dispatch(closeModal())
@@ -118,14 +109,14 @@ const AdminProductsForm: React.FC = () => {
 			<Grid>
 				<Grid.Col span={6}>
 					<TextInput
-						placeholder='Название катерогии'
-						label='Название категории'
+						placeholder='Заголовок раздела'
+						label='Заголовок раздела'
 						withAsterisk
 						{...form.getInputProps('name')}
 					/>
-					<TextInput
-						placeholder='Ссылка для меню'
-						label='Ссылка для меню'
+                    <TextInput
+						placeholder='Ссылка'
+						label='Ссылка'
 						withAsterisk
 						disabled={edit ? true : false}
 						{...form.getInputProps('link')}
@@ -134,18 +125,6 @@ const AdminProductsForm: React.FC = () => {
 						placeholder='Позиция для сортировки'
 						label='Позиция для сортировки'
 						{...form.getInputProps('position')}
-					/>
-					<TextInput
-						placeholder='Цена'
-						label='Цена'
-						withAsterisk
-						{...form.getInputProps('price')}
-					/>
-					<TagsInput
-						label='Картинки'
-						allowDuplicates
-						data={[]}
-						{...form.getInputProps('imageArr')}
 					/>
 					<Group>
 						<Checkbox
@@ -158,7 +137,7 @@ const AdminProductsForm: React.FC = () => {
 					</Group>
 				</Grid.Col>
 				<Grid.Col span={6}>
-          <InputWrapper label="Описание">
+          <InputWrapper label="Текст">
 					<RichTextEditor editor={editor}>
 						<RichTextEditor.Toolbar sticky stickyOffset={60}>
 							<RichTextEditor.ControlsGroup>
@@ -216,4 +195,4 @@ const AdminProductsForm: React.FC = () => {
 		</form>
 	)
 };
-export default AdminProductsForm;
+export default AdminInfoForm;

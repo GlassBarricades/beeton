@@ -17,7 +17,9 @@ import RequireAuth from './hoc/RequireAuth'
 import AdminLayout from './components/layout/AdminLayout'
 import AdminCategoriesPage from './pages/admin/AdminCategoriesPage'
 import AdminProductsPage from './pages/admin/AdminProductsPage'
-import ProductPage from './pages/ProductPage'
+import {ProductPage, productLoader} from './pages/ProductPage'
+import AdminInfoPage from './pages/admin/AdminInfoPage'
+import AdminMainPage from './pages/admin/AdminMainPage'
 
 function App() {
 	const router = createBrowserRouter(
@@ -27,7 +29,7 @@ function App() {
 					<Route index element={<HomePage />} />
 					<Route path='catalog' element={<CatalogPage />} />
 					<Route path='catalog/:category' element={<CategoryPage />} loader={categoryLoader} />
-					<Route path='catalog/:category/:product' element={<ProductPage />} />
+					<Route path='catalog/:category/:product' element={<ProductPage />} loader={productLoader}/>
 					<Route path='about' element={<AboutPage />} />
 					<Route path='contacts' element={<ContactsPage />} />
 					<Route path='info' element={<InfoPage />} />
@@ -44,6 +46,14 @@ function App() {
 						index
 						element={
 							<RequireAuth>
+								<AdminMainPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='category'
+						element={
+							<RequireAuth>
 								<AdminCategoriesPage />
 							</RequireAuth>
 						}
@@ -53,6 +63,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminProductsPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='info'
+						element={
+							<RequireAuth>
+								<AdminInfoPage />
 							</RequireAuth>
 						}
 					/>

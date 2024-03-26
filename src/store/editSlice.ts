@@ -8,9 +8,9 @@ interface IEditData {
 		link?: string
 		position?: number
 		image?: string
-		description?: string
-		descrUp?: any | undefined
+		description: string
 		imageArr?: string[]
+		price?: string
 		visible?: boolean
 		delivery?: boolean
 	}
@@ -20,7 +20,9 @@ interface IEditData {
 const initialState: IEditData = {
 	edit: false,
 	editUuid: '',
-	editData: {},
+	editData: {
+		description: ''
+	},
 	editModal: false,
 }
 
@@ -48,7 +50,9 @@ const editSlice = createSlice({
 		},
 		closeModal(state) {
 			state.editModal = false
-			state.editData = {}
+			state.editData = {
+				description: ''
+			}
 			state.edit = false
 			state.editUuid = ''
 		},

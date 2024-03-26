@@ -1,6 +1,7 @@
 import { child, get, getDatabase, ref } from "firebase/database";
 import { useLoaderData } from "react-router-dom";
 import CatalogHero from "../components/catalog/CatalogHero";
+import CatalogGrid from "../components/CatalogGrid";
 
 interface ILoaderData {
   dataBase: any;
@@ -9,10 +10,13 @@ interface ILoaderData {
 
 const CategoryPage = () => {
   const { dataBase, category } = useLoaderData() as ILoaderData;
-  console.log(dataBase);
+  const dataProducts: any  = Object.values(dataBase.products)
   console.log(category);
   return (
+    <>
     <CatalogHero name={dataBase.name} image={dataBase.image}/>
+    <CatalogGrid data={dataProducts}/>
+    </>
   );
 };
 

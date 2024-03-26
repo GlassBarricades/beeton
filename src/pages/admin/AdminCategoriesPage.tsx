@@ -11,7 +11,6 @@ const AdminCategoriesPage = () => {
 	const dispatch = useAppDispatch()
 	const [categories, loading] = useFetchSortedData(
 		{ url: '/catalog', field: 'position' },
-		
 	)
 
 	const rows = categories.map((element: any) => (

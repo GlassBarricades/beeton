@@ -75,7 +75,7 @@ const InfoAccordion = () => {
     );
   });
   return (
-    <Accordion variant="filled" radius={0} transitionDuration={800} classNames={{ chevron: classes.chevron }}
+    <Accordion variant="filled" radius={0} transitionDuration={500} classNames={{ chevron: classes.chevron }}
     chevron={<Plus className={classes.icon} />}>
       {items}
     </Accordion>
