@@ -20,7 +20,7 @@ const AdminCategoriesPage = () => {
 
 	return (
 		<Container fluid>
-			<AdminModal>
+			<AdminModal size="md">
 				<AdminCategoryForm />
 			</AdminModal>
 			<Group justify='space-between' mt='md'>

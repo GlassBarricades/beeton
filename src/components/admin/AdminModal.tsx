@@ -4,16 +4,18 @@ import { memo } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 
 interface IProps {
+	size: string
     children: React.ReactNode
 }
 
-const AdminModal = memo(({ children }: IProps) => {
+const AdminModal = memo(({ size, children }: IProps) => {
 	const edit = useAppSelector(state => state.edit.edit)
 	const open = useAppSelector(state => state.edit.editModal)
 	const dispatch = useAppDispatch()
 	return (
 		<Modal
 			opened={open}
+			size={size}
 			onClose={() => dispatch(closeModal())}
 			title={edit ? 'Редактирование элемента' : 'Добавление элемента'}
 		>

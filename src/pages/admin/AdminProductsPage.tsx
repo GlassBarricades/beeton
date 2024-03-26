@@ -22,12 +22,12 @@ const AdminMain = () => {
 
 	return (
 		<>
-			<AdminModal>
+			<AdminModal size='calc(100vw - 3rem)'>
 				<AdminProductsForm />
 			</AdminModal>
 			<Group justify='space-between' mt='md'>
 				<Title>Продукты</Title>
-				<Button 
+				<Button
 					variant='default'
 					radius={0}
 					size='md'
