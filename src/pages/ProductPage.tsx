@@ -26,8 +26,8 @@ const ProductPage = () => {
   return (
     <Container size="xl">
       <Grid mt="xl">
-        <Grid.Col span={{base: 12, md: 6}} order={{ base: 2, md: 1 }}>
-          <Carousel dragFree loop withIndicators height={"85vh"}>
+        <Grid.Col span={{base: 12, md: 6}} order={{ base: 2, md: 1 }} style={{ maxHeight: 800, display: 'flex' }}>
+          <Carousel dragFree loop withIndicators height="100%" style={{ flex: 1 }}>
             {slides}
           </Carousel>
         </Grid.Col>

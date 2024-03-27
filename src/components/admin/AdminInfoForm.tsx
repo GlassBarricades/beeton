@@ -29,20 +29,20 @@ const AdminInfoForm: React.FC = () => {
   const dispatch = useAppDispatch();
 
   interface IDataObj {
-    name: string;
-    link: string;
+    title: string;
+    value: string;
     position: number;
-    description: string;
+    content: string;
     visible: boolean;
   }
 
   useEffect(() => {
     if (edit) {
       form.setValues({
-        name: editData.name,
-        link: editData.link,
+        title: editData.title,
+        value: editData.value,
         position: editData.position,
-        description: editData.description,
+        content: editData.content,
         visible: editData.visible,
       });
     }
@@ -50,14 +50,14 @@ const AdminInfoForm: React.FC = () => {
 
   const form = useForm<IDataObj>({
     initialValues: {
-      name: "",
-      link: "",
+      title: "",
+      value: "",
       position: 0,
-      description: "",
+      content: "",
       visible: false,
     },
     validate: {
-      link: isNotEmpty("Поле не должно быть пустым"),
+		value: isNotEmpty("Поле не должно быть пустым"),
     },
   });
 
@@ -71,12 +71,12 @@ const AdminInfoForm: React.FC = () => {
       Highlight,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
     ],
-    content: form.values["description"],
+    content: form.values["content"],
     onUpdate({ editor }) {
-      form.setFieldValue('description', editor.getHTML())
+      form.setFieldValue('content', editor.getHTML())
     },
     onCreate({ editor }) {
-      editor.commands.insertContent(editData.description)
+      editor.commands.insertContent(editData.content)
     },
   });
 
@@ -88,7 +88,7 @@ const AdminInfoForm: React.FC = () => {
 				!edit
 					? form.onSubmit(values =>
 							writeToDatabase(
-								`/information/${values.link}`,
+								`/information/${values.value}`,
 								{ ...values },
 								form.reset,
 								() => dispatch(closeModal()),
@@ -98,7 +98,7 @@ const AdminInfoForm: React.FC = () => {
 					: form.onSubmit(values => {
 							submitChangeDataBase(
 								values,
-								`/information/${values.link}`,
+								`/information/${values.value}`,
 								editUuid,
 								form.reset,
 								() => dispatch(closeModal())
@@ -107,19 +107,19 @@ const AdminInfoForm: React.FC = () => {
 			}
 		>
 			<Grid>
-				<Grid.Col span={6}>
+				<Grid.Col span={{base: 12, md: 6}}>
 					<TextInput
 						placeholder='Заголовок раздела'
 						label='Заголовок раздела'
 						withAsterisk
-						{...form.getInputProps('name')}
+						{...form.getInputProps('title')}
 					/>
                     <TextInput
 						placeholder='Ссылка'
 						label='Ссылка'
 						withAsterisk
 						disabled={edit ? true : false}
-						{...form.getInputProps('link')}
+						{...form.getInputProps('value')}
 					/>
 					<NumberInput
 						placeholder='Позиция для сортировки'
@@ -136,7 +136,7 @@ const AdminInfoForm: React.FC = () => {
 						/>
 					</Group>
 				</Grid.Col>
-				<Grid.Col span={6}>
+				<Grid.Col span={{base: 12, md: 6}}>
           <InputWrapper label="Текст">
 					<RichTextEditor editor={editor}>
 						<RichTextEditor.Toolbar sticky stickyOffset={60}>

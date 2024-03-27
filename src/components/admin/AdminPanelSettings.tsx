@@ -15,7 +15,6 @@ const AdminPanelSettings = ({ element, deleteLink }: IProps) => {
 	return (
 		<Group>
 			<ActionIcon
-				mt='xs'
 				size="lg"
 				radius={0}
 				variant={colorScheme.colorScheme === 'dark' ? 'outline' : 'default'}
@@ -25,7 +24,6 @@ const AdminPanelSettings = ({ element, deleteLink }: IProps) => {
 				<Pencil size='1.2rem' />
 			</ActionIcon>
 			<ActionIcon
-				mt='xs'
 				size="lg"
 				radius={0}
 				variant={colorScheme.colorScheme === 'dark' ? 'outline' : 'default'}

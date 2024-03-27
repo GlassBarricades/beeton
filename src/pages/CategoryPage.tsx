@@ -5,17 +5,15 @@ import CatalogGrid from "../components/CatalogGrid";
 
 interface ILoaderData {
   dataBase: any;
-  category: string;
 }
 
 const CategoryPage = () => {
-  const { dataBase, category } = useLoaderData() as ILoaderData;
-  const dataProducts: any  = Object.values(dataBase.products)
-  console.log(category);
+  const { dataBase } = useLoaderData() as ILoaderData;
+    const dataProducts: any  = dataBase.products ? Object.values(dataBase.products) : undefined
   return (
     <>
     <CatalogHero name={dataBase.name} image={dataBase.image}/>
-    <CatalogGrid data={dataProducts}/>
+    {dataBase.products ? <CatalogGrid data={dataProducts}/> : undefined}
     </>
   );
 };
@@ -40,7 +38,7 @@ const categoryLoader = async ({ params }: any) => {
       console.error(error);
     });
 
-  return { dataBase, category };
+  return { dataBase };
 };
 
 export { CategoryPage, categoryLoader };

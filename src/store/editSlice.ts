@@ -5,10 +5,13 @@ interface IEditData {
 	editUuid: string
 	editData: {
 		name?: string
+		title?: string
 		link?: string
+		value?: string
 		position?: number
 		image?: string
 		description: string
+		content: string
 		imageArr?: string[]
 		price?: string
 		visible?: boolean
@@ -21,7 +24,8 @@ const initialState: IEditData = {
 	edit: false,
 	editUuid: '',
 	editData: {
-		description: ''
+		description: '',
+		content: ''
 	},
 	editModal: false,
 }
@@ -51,7 +55,8 @@ const editSlice = createSlice({
 		closeModal(state) {
 			state.editModal = false
 			state.editData = {
-				description: ''
+				description: '',
+				content: ''
 			}
 			state.edit = false
 			state.editUuid = ''

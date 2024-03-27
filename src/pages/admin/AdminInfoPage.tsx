@@ -12,14 +12,12 @@ const AdminInfoPage = () => {
     url: "/information",
     field: "position",
   });
-  console.log(information);
-  console.log(loading);
   return (
     <Container fluid>
       <AdminModal size="calc(100vw - 3rem)">
         <AdminInfoForm />
       </AdminModal>
-      <Group justify="space-between" mt="md">
+      <Group justify="space-between" mt="md" mb="md">
         <Title>Информация</Title>
         <Button
           variant="default"
@@ -30,7 +28,8 @@ const AdminInfoPage = () => {
           Добавить Информацию
         </Button>
       </Group>
-      <InfoAccordion />
+      {!loading ? <InfoAccordion data={information} variant="admin"/> : 'Загрузка ...'}
+      
     </Container>
   );
 };

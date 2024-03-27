@@ -1,0 +1,12 @@
+.imageWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textWrap {
+    max-width: 60%;
+
+    @media (max-width: $mantine-breakpoint-md) {
+        max-width: 100%;
+      }
+}

@@ -116,7 +116,7 @@ const AdminProductsForm: React.FC = () => {
 			}
 		>
 			<Grid>
-				<Grid.Col span={6}>
+				<Grid.Col span={{base: 12, md: 6}}>
 					<TextInput
 						placeholder='Название катерогии'
 						label='Название категории'
@@ -157,7 +157,7 @@ const AdminProductsForm: React.FC = () => {
 						/>
 					</Group>
 				</Grid.Col>
-				<Grid.Col span={6}>
+				<Grid.Col span={{base: 12, md: 6}}>
           <InputWrapper label="Описание">
 					<RichTextEditor editor={editor}>
 						<RichTextEditor.Toolbar sticky stickyOffset={60}>
