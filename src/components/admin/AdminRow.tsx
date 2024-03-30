@@ -15,7 +15,7 @@ const AdminRow = memo(({ element, deleteLink }: IProps) => {
       <Table.Td>
         <Image
           w={50}
-          src={element.image ? element.image : element.imageArr[0]}
+          src={element.imageArr ? element.imageArr[0] : 'https://irl.by/wp-content/uploads/2017/08/52_nc7DbtMU.jpg'}
           alt={element.name}
         />
       </Table.Td>

@@ -1,0 +1,23 @@
+.wrapper {
+    background-image: url('https://gazeta-pravo.ru/wp-content/uploads/2019/08/elementy-dekora-iz-betona.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 93vh;
+    width: 100vw;
+    position: relative;
+}
+.gradientOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @mixin dark {
+      background: rgba(0,0,0, 0.7);
+      
+    }
+    @mixin light {
+      background: rgba(255,255,255, 0.5);
+    }
+  }

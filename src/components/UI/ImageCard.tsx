@@ -12,7 +12,6 @@ type TProps = {
 
 const ImageCard = ({ link, image, title }: TProps) => {
   let location = useLocation();
-  console.log(location.pathname)
   const [opened, setOpened] = useState(false);
   useEffect(() => {
     setOpened(true);
