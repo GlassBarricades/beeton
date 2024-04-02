@@ -1,4 +1,4 @@
-import { Container, Grid, Image, Paper, SimpleGrid } from "@mantine/core";
+import { Container, Grid, Image } from "@mantine/core";
 import useFetchSortedData from "../../hooks/useFetchSortedData";
 import classes from "./PartnersSection.module.css"
 
@@ -7,7 +7,7 @@ const PartnersSection = () => {
     url: "/partners",
     field: "position",
   });
-  console.log(partners);
+  console.log(loading);
   return (
     <Container fluid py="xl">
         <Grid className={classes.containerGrid}>
