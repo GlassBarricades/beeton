@@ -20,6 +20,7 @@ import AdminProductsPage from './pages/admin/AdminProductsPage'
 import {ProductPage, productLoader} from './pages/ProductPage'
 import AdminInfoPage from './pages/admin/AdminInfoPage'
 import AdminMainPage from './pages/admin/AdminMainPage'
+import AdminPartnersPage from './pages/admin/AdminPartnersPage'
 
 function App() {
 	const router = createBrowserRouter(
@@ -71,6 +72,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminInfoPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='partners'
+						element={
+							<RequireAuth>
+								<AdminPartnersPage />
 							</RequireAuth>
 						}
 					/>

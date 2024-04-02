@@ -1,5 +1,6 @@
 import AboutPhotoSection from "../components/sections/AboutPhotoSection";
 import FooterSection from "../components/sections/FooterSection";
+import PartnersSection from "../components/sections/PartnersSection";
 import VideoCarouselSectiont from "../components/sections/VideoCarouselSection";
 
 const AboutPage = () => {
@@ -7,6 +8,7 @@ const AboutPage = () => {
         <>
         <AboutPhotoSection />
         <VideoCarouselSectiont />
+        <PartnersSection />
         <FooterSection />
         </>
     )

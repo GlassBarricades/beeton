@@ -1,11 +1,11 @@
 import { useLocation, Navigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 
-interface IProps {
+interface IRequareAuthProps {
 	children: React.ReactNode
 }
 
-const RequireAuth = ({ children }: IProps) => {
+const RequireAuth = ({ children }: IRequareAuthProps) => {
 	const location = useLocation()
 	const { isAuth } = useAuth()
 

@@ -1,0 +1,10 @@
+.itemWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerGrid {
+    :nth-child(even) {
+        background-color: blue;
+    }
+}

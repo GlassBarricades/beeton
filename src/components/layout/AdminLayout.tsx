@@ -103,6 +103,13 @@ const AdminLayout = () => {
 				>
 					Информация
 				</UnstyledButton>
+				<UnstyledButton
+					to="/admin/partners"
+					component={NavLink}
+					className={classes.control}
+				>
+					Партнёры
+				</UnstyledButton>
 				{linksItemsMain}
 			</AppShell.Navbar>
 
