@@ -13,7 +13,7 @@ const AdminTable = memo(({ rows, columnArray, loading }: IProps) => {
       {loading === true || loading === "loading" ? (
         <Text size="xl">Загрузка...</Text>
       ) : (
-        <ScrollArea h={"70vh"} maw={"100%"} mx="auto" offsetScrollbars>
+        <ScrollArea h={"80vh"} miw={"100%"} mx="auto" offsetScrollbars>
           <Table
             striped
             highlightOnHover

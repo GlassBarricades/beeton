@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { db } from "../firebase";
 import { ref, onValue } from "firebase/database";
 
-const useFetchDataOne = (url) => {
-  const [data, setData] = useState({});
+const useFetchDataOne = (url: string) => {
+  const [data, setData] = useState<any>({});
   const [loading, setLoading] = useState(false);
 
-  function fetchData(url) {
+  function fetchData(url: string) {
     setLoading(true);
     onValue(ref(db, url), (snapshot) => {
       setData({});

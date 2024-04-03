@@ -13,17 +13,19 @@ import storage from 'redux-persist/lib/storage'
 import authSlice from './authSlice'
 import navBarSlice from './navBarSlice'
 import editSlice from './editSlice'
+import editSliceText from './textEditSlice'
 
 const rootReducer = combineReducers({
 	auth: authSlice,
 	navBar: navBarSlice,
 	edit: editSlice,
+	editText: editSliceText
 })
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	blacklist: ['categories', 'navBar', 'edit', 'units'],
+	blacklist: ['categories', 'navBar', 'edit', 'editText'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

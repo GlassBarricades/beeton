@@ -2,11 +2,6 @@ import { useState, useEffect } from 'react'
 import { db } from '../firebase'
 import { ref, onValue } from 'firebase/database'
 
-// type IProps = {
-// 	url: string
-// 	field: string
-// }
-
 const useFetchSortedData = ({ url, field }: { url: string; field: string }) => {
 	const [data, setData] = useState<any>([])
 	const [loading, setLoading] = useState<boolean>(false)
