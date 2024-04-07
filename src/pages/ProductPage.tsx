@@ -5,29 +5,25 @@ import { useLoaderData } from "react-router-dom";
 
 interface ILoaderData {
   productDataBase: any;
-  category: string;
-  product: string;
 }
 
 const ProductPage = () => {
-  const { productDataBase, category, product } = useLoaderData() as ILoaderData;
-  console.log(category)
-  console.log(product)
-  console.log(productDataBase);
+  const { productDataBase } = useLoaderData() as ILoaderData;
+  console.log(productDataBase)
 
-  const slides = productDataBase.imageArr.map((item: string, index: any) => {
+  const slides = productDataBase.imageArr.map((item: string, index: string) => {
     return (
-      <Carousel.Slide key={index}>
-        <Image src={item} fit="contain"/>
-      </Carousel.Slide>
-    );
+				<Carousel.Slide key={index}>
+					<Image src={item} fit='cover' />
+				</Carousel.Slide>
+		)
   });
 
   return (
     <Container size="xl">
       <Grid mt="xl">
         <Grid.Col span={{base: 12, md: 6}} order={{ base: 2, md: 1 }} style={{ maxHeight: 800, display: 'flex' }}>
-          <Carousel dragFree loop withIndicators height="100%" style={{ flex: 1 }}>
+          <Carousel dragFree loop withIndicators height="100%" w={"100%"} style={{ flex: 1 }}>
             {slides}
           </Carousel>
         </Grid.Col>
@@ -63,6 +59,6 @@ const productLoader = async ({ params }: any) => {
       console.error(error);
     });
 
-  return { productDataBase, category, product };
+  return { productDataBase };
 };
 export { ProductPage, productLoader };
