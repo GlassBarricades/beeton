@@ -17,7 +17,6 @@ const AdminMain = () => {
   });
 
   const rows = categories.map((element: any) => {
-    console.log(element);
     return (
       <AdminRow
         key={element.uuid}

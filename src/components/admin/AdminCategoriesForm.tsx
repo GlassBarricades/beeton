@@ -7,22 +7,22 @@ import { closeModal } from '../../store/editSlice'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 
+interface IDataObj {
+	name: string
+	link: string
+	position: number
+	image: string
+	description: string
+	visible: boolean
+	delivery: boolean
+}
+
 const AdminCategoryForm = () => {
 	// const { categoryElement } = useParams()
 	const edit = useAppSelector(state => state.edit.edit)
 	const editData = useAppSelector(state => state.edit.editData)
 	const editUuid = useAppSelector(state => state.edit.editUuid)
 	const dispatch = useAppDispatch()
-
-	interface IDataObj {
-		name: string
-		link: string
-		position: number
-		image: string
-		description: string
-		visible: boolean
-		delivery: boolean
-	}
 
 	useEffect(() => {
 		if (edit) {

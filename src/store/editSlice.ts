@@ -10,9 +10,11 @@ interface IEditData {
 		value?: string
 		position?: number
 		image?: string
-		description: string
-		text: string
-		content: string
+		description?: string
+		text?: string
+		content?: string
+		firstImg?: string
+		mainImage?: string
 		imageArr?: string[]
 		price?: string
 		visible?: boolean

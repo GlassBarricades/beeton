@@ -23,6 +23,18 @@ import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
+import { useDocumentTitle } from '@mantine/hooks';
+
+interface IDataObj {
+    name: string;
+    link: string;
+    position: number;
+    description: string;
+	firstImg: string,
+    imageArr: string[];
+	price: string;
+    visible: boolean;
+  }
 
 const AdminProductsForm: React.FC = () => {
   const { category } = useParams();
@@ -30,16 +42,7 @@ const AdminProductsForm: React.FC = () => {
   const editData = useAppSelector((state) => state.edit.editData);
   const editUuid = useAppSelector((state) => state.edit.editUuid);
   const dispatch = useAppDispatch();
-
-  interface IDataObj {
-    name: string;
-    link: string;
-    position: number;
-    description: string;
-    imageArr: string[];
-	price: string;
-    visible: boolean;
-  }
+  useDocumentTitle("Beeton | Продукты")
 
   useEffect(() => {
     if (edit) {
@@ -48,6 +51,7 @@ const AdminProductsForm: React.FC = () => {
         link: editData.link,
         position: editData.position,
         description: editData.description,
+		firstImg: editData.firstImg,
         imageArr: editData.imageArr,
 		price: editData.price,
         visible: editData.visible,
@@ -62,6 +66,7 @@ const AdminProductsForm: React.FC = () => {
       position: 0,
       description: "",
 	  price: "",
+	  firstImg: "",
       imageArr: [],
       visible: false,
     },
@@ -88,8 +93,6 @@ const AdminProductsForm: React.FC = () => {
       editor.commands.insertContent(editData.description)
     },
   });
-
-  console.log(form.values)
 
   return (
 		<form
@@ -140,6 +143,12 @@ const AdminProductsForm: React.FC = () => {
 						label='Цена'
 						withAsterisk
 						{...form.getInputProps('price')}
+					/>
+					<TextInput
+						placeholder='Главная картинка'
+						label='Главная картинка'
+						withAsterisk
+						{...form.getInputProps('firstImg')}
 					/>
 					<TagsInput
 						label='Картинки'

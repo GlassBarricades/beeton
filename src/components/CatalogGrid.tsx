@@ -7,6 +7,7 @@ interface ICatalogGridProps {
 interface ICatalogItem {
   category?: string;
   description?: string;
+  firstImg: string;
   imageArr?: string[];
   link: string;
   name?: string;

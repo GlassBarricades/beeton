@@ -5,6 +5,7 @@ import classes from "./CatalogCard.module.css";
 interface ICatalogItem {
     category?: string
     description?: string
+    firstImg: string
     imageArr?: string[]
     link: string
     name?: string
@@ -24,13 +25,13 @@ const CatalogCard = ({ item }: ICatalogCardProps) => {
       component={Link}
       radius={0}
       p={0}
-      to={item.category ? `catalog/${item.category}/${item.link}` : item.link}
+      to={item.category ? `${item.category}/${item.link}` : item.link}
     >
       <AspectRatio ratio={3 / 3}>
         <Image
           src={
-            item.imageArr
-              ? item.imageArr[0]
+            item.firstImg
+              ? item.firstImg
               : "https://irl.by/wp-content/uploads/2017/08/52_nc7DbtMU.jpg"
           }
         />

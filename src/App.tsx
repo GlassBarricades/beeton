@@ -21,8 +21,23 @@ import {ProductPage, productLoader} from './pages/ProductPage'
 import AdminInfoPage from './pages/admin/AdminInfoPage'
 import AdminMainPage from './pages/admin/AdminMainPage'
 import AdminPartnersPage from './pages/admin/AdminPartnersPage'
+import AdminMainSettings from './pages/admin/AdminMainSettings'
+import { useEffect } from 'react'
+import { fetchSettings } from './store/settingsSlice'
+import { useAppDispatch, useAppSelector } from './hooks'
 
 function App() {
+
+	const settings = useAppSelector(state => state.settings.settings)
+	const dispatch = useAppDispatch()
+
+	console.log(settings)
+
+	useEffect(() => {
+		dispatch(fetchSettings())
+	}, [dispatch])
+
+
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<>
@@ -80,6 +95,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminPartnersPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='mainsettings'
+						element={
+							<RequireAuth>
+								<AdminMainSettings />
 							</RequireAuth>
 						}
 					/>

@@ -18,12 +18,12 @@ const AdminLayout = () => {
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 	const [categories] = useFetchSortedData(
 		{ url: '/catalog', field: 'position' },
-		
+
 	)
 
 	const linksItemsMain = categories.map((item: any) => {
-        return <UnstyledButton key={item.link} to={item.link} component={NavLink} className={classes.control}>{item.name}</UnstyledButton>
-    })
+		return <UnstyledButton key={item.link} to={item.link} component={NavLink} className={classes.control}>{item.name}</UnstyledButton>
+	})
 
 	const links = [
 		{ title: '<Вернуться на сайт', link: '/' },
@@ -89,6 +89,13 @@ const AdminLayout = () => {
 			</AppShell.Header>
 
 			<AppShell.Navbar py='md' px={4}>
+				<UnstyledButton
+					to="/admin/mainsettings"
+					component={NavLink}
+					className={classes.control}
+				>
+					Основные настройки
+				</UnstyledButton>
 				<UnstyledButton
 					to="/admin/category"
 					component={NavLink}
