@@ -1,56 +1,20 @@
 import { Carousel } from "@mantine/carousel";
-import { AspectRatio, Card, Container, Image, Text } from "@mantine/core";
+import { AspectRatio, Card, Container, Image, Text, Title } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import YouTube, { YouTubeProps } from "react-youtube";
 import classes from "./VideoCarouselSectiont.module.css";
-
-const dataVideo = [
-  {
-    name: "Интервью Телеканал Беларусь 24",
-    link: "vLMgEcPsZDc",
-    image: "https://i.ibb.co/Hq4Tdqf/maxresdefault.jpg",
-  },
-  {
-    name: '"Наше Утро" ОНТ | 16.09.2023 |',
-    link: "rQwD01zEM2o",
-    image: "https://i.ibb.co/ZHKLkNs/maxresdefault-1.jpg",
-  },
-  {
-    name: "Квартирный вопрос. Мужской лофт",
-    link: "alhzDoAG0EU",
-    image: "https://i.ibb.co/kXk99pK/maxresdefault-2.jpg",
-  },
-  {
-    name: "Квартирный вопрос. Колор-блок",
-    link: "JpVKwka8VJU",
-    image: "https://i.ibb.co/b6FjWRk/maxresdefault-3.jpg",
-  },
-  {
-    name: "Квартирный вопрос. Арт-деко",
-    link: "C97yKdSSEbA",
-    image: "https://i.ibb.co/ss6QVBy/maxresdefault-4.jpg",
-  },
-  {
-    name: "Квартирный вопрос. Контрастная гостиная",
-    link: "BJdm_usO6EA",
-    image: "https://i.ibb.co/cJr9kKc/maxresdefault-5.jpg",
-  },
-  {
-    name: "Квартирный вопрос. П-образная панель",
-    link: "TP_YERgg8mg",
-    image: "https://i.ibb.co/kKRMdcD/maxresdefault-6.jpg",
-  },
-  {
-    name: "Маленькое дело: бетонная мастерская",
-    link: "lvT7cHWTNzs",
-    image: "https://i.ibb.co/5MzcQZ8/maxresdefault-7.jpg",
-  },
-];
+import useFetchSortedData from "../../hooks/useFetchSortedData";
 
 const VideoCarouselSectiont = () => {
+  const [video, loading] = useFetchSortedData({
+    url: "/video",
+    field: "position",
+  });
   const onPlayerReady: YouTubeProps["onReady"] = (event) => {
     event.target.pauseVideo();
   };
+
+  console.log(loading)
 
   const opts: YouTubeProps["opts"] = {
     // height: '390',
@@ -62,6 +26,7 @@ const VideoCarouselSectiont = () => {
 
   return (
     <Container fluid mb="xl" mt="xl">
+      <Title order={2} mb="xl" ta="center">О нас в СМИ</Title>
       <Carousel
         withIndicators
         height={400}
@@ -71,9 +36,9 @@ const VideoCarouselSectiont = () => {
         align="start"
         slidesToScroll={1}
       >
-        {dataVideo.map((item, indx) => {
+        {video.map((item: any) => {
           return (
-            <Carousel.Slide key={indx}>
+            <Carousel.Slide key={item.link}>
               <Card
                 padding="xl"
                 component="a"

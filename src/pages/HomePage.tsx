@@ -1,72 +1,22 @@
-import CatalogGrid from "../components/CatalogGrid";
 import CatalogSection from "../components/sections/CatalogSection";
-// import CatalogZoomSection from "../components/sections/CatalogZoomSection";
 import FooterSection from "../components/sections/FooterSection";
 import HeroSection from "../components/sections/HeroSection";
-import useFetchSortedData from "../hooks/useFetchSortedData";
-// import VideoCarouselSectiont from "../components/sections/VideoCarouselSection";
-// import VideoSection from "../components/sections/VideoSection";
+import PartnersSection from "../components/sections/PartnersSection";
+import VideoCarouselSectiont from "../components/sections/VideoCarouselSection";
 
-interface IHomeCategoryItem {
-	delivery: boolean
-	description?: string
-	image?: string
-	link: string
-	name?: string
-	position: number
-	uuid: string
-	visible: boolean
-	products?: ICatalogItem[] 
+interface IHomeProps {
+  image: string
+  textHero: string
+
 }
 
-interface ICatalogItem {
-	category?: string
-	description?: string
-	imageArr?: string[]
-	link: string
-	name?: string
-	position: number
-	price?: string
-	uuid: string
-	visible: boolean
-  }
-
-const HomePage = () => {
-  const [catalog, loading] = useFetchSortedData({
-    url: "/catalog",
-    field: "position",
-  });
-
-  console.log(loading)
-
-  const fullCatalog = catalog
-    .map((item: IHomeCategoryItem) => {
-		console.log(item)
-      if (item.products != undefined) {
-        const obj: ICatalogItem[] = Object.values(item.products);
-		const objM: ICatalogItem[] = obj.map((token: ICatalogItem) => {
-			return {category: item.link, ...token}
-		})
-        return objM;
-      } else {
-        return undefined;
-      }
-    })
-    .filter((item: ICatalogItem) => {
-      return item != undefined;
-    })
-    .flat();
-
-	console.log(fullCatalog)
-
+const HomePage = ({image, textHero}: IHomeProps) => {
   return (
     <>
-      <HeroSection />
+      <HeroSection image={image} text={textHero}/>
       <CatalogSection />
-      {/* <CatalogZoomSection /> */}
-      <CatalogGrid data={fullCatalog} />
-      {/* <VideoCarouselSectiont /> */}
-      {/* <VideoSection /> */}
+      <VideoCarouselSectiont />
+      <PartnersSection />
       <FooterSection />
     </>
   );

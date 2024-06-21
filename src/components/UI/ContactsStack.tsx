@@ -1,6 +1,8 @@
 import { Anchor, Stack, useMantineColorScheme } from '@mantine/core'
+import { useAppSelector } from '../../hooks'
 
 const ContactsStack = () => {
+	const settings = useAppSelector(state => state.settings.settings)
 	const { colorScheme } = useMantineColorScheme()
 	return (
 		<Stack align='flex-end' gap='xs' justify='flex-start'>
@@ -8,29 +10,29 @@ const ContactsStack = () => {
 				inline
 				c={colorScheme === 'dark' ? 'gray' : 'black'}
 				component='a'
-				href='tel:+375292747442'
+				href={`tel:${settings.phone}`}
 				underline='hover'
 			>
-				Телефон: +375292747442
+				{`Телефон: ${settings.phone}`}
 			</Anchor>
 			<Anchor
 				inline
 				c={colorScheme === 'dark' ? 'gray' : 'black'}
                 target='_blank'
 				component='a'
-				href='https://yandex.by/maps/-/CDFs7IOz'
+				href={settings.adressLink}
 				underline='hover'
 			>
-				Адрес мастерской: город Минск, ул. Казинца 42/6
+				{`Адрес мастерской: ${settings.adress}`}
 			</Anchor>
 			<Anchor
 				inline
 				c={colorScheme === 'dark' ? 'gray' : 'black'}
 				component='a'
-				href='mailto:beetonminsk@gmail.com'
+				href={`mailto:${settings.email}`}
 				underline='hover'
 			>
-				E-mail: beetonminsk@gmail.com
+				{`E-mail: ${settings.email}`}
 			</Anchor>
 		</Stack>
 	)

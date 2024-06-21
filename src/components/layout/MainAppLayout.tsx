@@ -1,12 +1,15 @@
-import { AppShell, Burger, Button, Group, UnstyledButton } from '@mantine/core'
+import { AppShell, Burger, Button, Group, Modal, UnstyledButton } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './MainAppLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
 import { ThemeChange } from '../UI/ThemeChange'
 import Logo from '../UI/Logo'
+import { useState } from 'react'
+import CallForm from '../CallForm'
 
 const MainAppLayout = () => {
 	const [opened, { toggle, close }] = useDisclosure()
+	const [openModal, setOpenModal] = useState(false)
 
     const links = [
 			{ title: 'Главная', link: '/' },
@@ -22,6 +25,10 @@ const MainAppLayout = () => {
     })
 
 	return (
+		<>
+		<Modal opened={openModal} onClose={() => setOpenModal(false)} title="Форма заказа звонка">
+        <CallForm />
+      </Modal>
 		<AppShell
 			header={{ height: 60 }}
 			navbar={{
@@ -38,7 +45,7 @@ const MainAppLayout = () => {
 						<Logo />
 						<Group ml='xl' gap={0} visibleFrom='sm'>
 							{linksItems}
-							<Button ml="md" variant="default" radius={0} size="md">Заказать звонок</Button>
+							<Button onClick={() => setOpenModal(true)} ml="md" variant="default" radius={0} size="md">Заказать звонок</Button>
 							<ThemeChange />
 						</Group>
 					</Group>
@@ -54,6 +61,7 @@ const MainAppLayout = () => {
 				<Outlet />
 			</AppShell.Main>
 		</AppShell>
+		</>
 	)
 }
 export default MainAppLayout;

@@ -12,13 +12,21 @@ interface IEditData {
 		image?: string
 		description?: string
 		text?: string
-		content?: string
+		content: string
 		firstImg?: string
 		mainImage?: string
+		heroText?: string
+		logo?: string
+		logoDarkTheme?: string
+		phone?: string
+		adress?: string
+		adressLink?: string
+		email?: string
 		imageArr?: string[]
 		price?: string
 		visible?: boolean
 		delivery?: boolean
+		inside?: boolean
 	}
 	editModal: boolean,
 }

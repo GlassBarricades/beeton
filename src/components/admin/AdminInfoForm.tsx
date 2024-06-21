@@ -80,8 +80,6 @@ const AdminInfoForm: React.FC = () => {
     },
   });
 
-  console.log(form.values)
-
   return (
 		<form
 			onSubmit={

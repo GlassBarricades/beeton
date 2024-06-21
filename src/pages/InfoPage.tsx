@@ -8,7 +8,6 @@ const InfoPage = () => {
     url: "/information",
     field: "position",
   });
-  console.log(loading);
   return (
     <>
     <Container mt="xl" mih={"70vh"}>

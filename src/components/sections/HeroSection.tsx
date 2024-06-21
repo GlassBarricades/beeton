@@ -14,11 +14,18 @@ import { Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
 import SocialIcons from "../UI/SocialIcons";
 
-const HeroSection = () => {
+interface IHeroProps {
+  image: string
+  text: string
+}
+
+const HeroSection = ({image, text}: IHeroProps) => {
   const [opened, setOpened] = useState(false);
   useEffect(() => {
     setOpened(true);
   }, [opened]);
+
+  console.log(text)
   return (
     <Container fluid>
     <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
@@ -44,7 +51,7 @@ const HeroSection = () => {
           >
             {(styles) => (
               <Text style={styles} size="xl">
-                Мастерская бетонных изделий: горшки, кашпо и декор
+                {text}
               </Text>
             )}
           </Transition>
@@ -62,7 +69,7 @@ const HeroSection = () => {
               <Image
                 style={styles}
                 className={classes.heroImage}
-                src="https://amiel.club/uploads/posts/2022-10/1664873112_1-amiel-club-p-dekor-iz-betona-v-interere-pinterest-1.jpg"
+                src={image}
               />
             )}
           </Transition>

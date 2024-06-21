@@ -117,6 +117,13 @@ const AdminLayout = () => {
 				>
 					Партнёры
 				</UnstyledButton>
+				<UnstyledButton
+					to="/admin/video"
+					component={NavLink}
+					className={classes.control}
+				>
+					Видео
+				</UnstyledButton>
 				{linksItemsMain}
 			</AppShell.Navbar>
 

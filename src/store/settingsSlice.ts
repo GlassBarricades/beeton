@@ -1,39 +1,47 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { getDatabase, ref, child, get } from 'firebase/database';
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { getDatabase, ref, child, get } from "firebase/database";
 
 interface Settings {
-  [key: string]: any;
+  mainImage: string;
+  heroText: string;
+  logo: string;
+  logoDarkTheme: string;
+  phone: string;
+  adress: string;
+  adressLink: string;
+  email: string;
 }
 
 interface SettingsState {
-  settings: Settings[];
-  status: 'loading' | 'resolved' | null;
+  settings: Settings;
+  status: "loading" | "resolved" | null;
   error: any;
 }
 
-export const fetchSettings = createAsyncThunk<Settings[], void, { rejectValue: { message: string } }>(
-  'settings/fetchSettings',
-  async (_, { rejectWithValue }) => {
-    try {
-      const dbRef = ref(getDatabase());
-      const snapshot = await get(child(dbRef, `/mainsettings/`));
-      if (snapshot.exists()) {
-        const data = Object.values(snapshot.val()) as Settings[];
-        return data;
-      } else {
-        console.log('No data available');
-        return [];
-      }
-    } catch (error) {
-      return rejectWithValue({ message: 'Failed to fetch categories' });
+export const fetchSettings = createAsyncThunk<
+  Settings,
+  void,
+  { rejectValue: { message: string } }
+>("settings/fetchSettings", async (_, { rejectWithValue }) => {
+  try {
+    const dbRef = ref(getDatabase());
+    const snapshot = await get(child(dbRef, `/mainsettings/`));
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      return data;
+    } else {
+      console.log("No data available");
+      return [];
     }
+  } catch (error) {
+    return rejectWithValue({ message: "Failed to fetch categories" });
   }
-);
+});
 
 const settingsSlice = createSlice({
-  name: 'settings',
+  name: "settings",
   initialState: {
-    settings: [],
+    settings: {},
     status: null,
     error: null,
   } as SettingsState,
@@ -41,13 +49,16 @@ const settingsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSettings.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
         state.error = null;
       })
-      .addCase(fetchSettings.fulfilled, (state, action: PayloadAction<Settings[]>) => {
-        state.status = 'resolved';
-        state.settings = action.payload;
-      })
+      .addCase(
+        fetchSettings.fulfilled,
+        (state, action: PayloadAction<Settings>) => {
+          state.status = "resolved";
+          state.settings = action.payload;
+        }
+      );
   },
 });
 

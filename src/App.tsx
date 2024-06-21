@@ -1,5 +1,6 @@
 import './App.css'
 import {
+	Navigate,
 	Route,
 	RouterProvider,
 	createBrowserRouter,
@@ -19,30 +20,26 @@ import AdminCategoriesPage from './pages/admin/AdminCategoriesPage'
 import AdminProductsPage from './pages/admin/AdminProductsPage'
 import {ProductPage, productLoader} from './pages/ProductPage'
 import AdminInfoPage from './pages/admin/AdminInfoPage'
-import AdminMainPage from './pages/admin/AdminMainPage'
 import AdminPartnersPage from './pages/admin/AdminPartnersPage'
 import AdminMainSettings from './pages/admin/AdminMainSettings'
 import { useEffect } from 'react'
 import { fetchSettings } from './store/settingsSlice'
 import { useAppDispatch, useAppSelector } from './hooks'
+import AdminVideoPage from './pages/admin/AdminVideoPage'
 
 function App() {
-
 	const settings = useAppSelector(state => state.settings.settings)
 	const dispatch = useAppDispatch()
-
-	console.log(settings)
 
 	useEffect(() => {
 		dispatch(fetchSettings())
 	}, [dispatch])
 
-
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<>
 				<Route path='/' element={<MainAppLayout />}>
-					<Route index element={<HomePage />} />
+					<Route index element={<HomePage image={settings.mainImage} textHero={settings.heroText}/>} />
 					<Route path='catalog' element={<CatalogPage />} />
 					<Route path='catalog/:category' element={<CategoryPage />} loader={categoryLoader} />
 					<Route path='catalog/:category/:product' element={<ProductPage />} loader={productLoader}/>
@@ -62,7 +59,7 @@ function App() {
 						index
 						element={
 							<RequireAuth>
-								<AdminMainPage />
+								<Navigate to='/admin/mainsettings' replace />
 							</RequireAuth>
 						}
 					/>
@@ -95,6 +92,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminPartnersPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='video'
+						element={
+							<RequireAuth>
+								<AdminVideoPage />
 							</RequireAuth>
 						}
 					/>
