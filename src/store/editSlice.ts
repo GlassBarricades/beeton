@@ -10,7 +10,7 @@ interface IEditData {
 		value?: string
 		position?: number
 		image?: string
-		description?: string
+		description: string
 		text?: string
 		content: string
 		firstImg?: string
