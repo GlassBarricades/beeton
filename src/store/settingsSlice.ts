@@ -10,6 +10,8 @@ interface Settings {
   adress: string;
   adressLink: string;
   email: string;
+  aboutText: string;
+  aboutImage: string;
 }
 
 interface SettingsState {

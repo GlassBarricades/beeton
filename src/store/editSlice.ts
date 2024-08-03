@@ -27,6 +27,8 @@ interface IEditData {
 		visible?: boolean
 		delivery?: boolean
 		inside?: boolean
+		aboutImage?: string
+		aboutText?: string
 	}
 	editModal: boolean,
 }

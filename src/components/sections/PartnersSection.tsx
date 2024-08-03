@@ -16,7 +16,6 @@ const PartnersSection = () => {
       <SimpleGrid cols={{ base: 1, md: 2 }}>
         <SimpleGrid
           cols={{ base: 2, md: 4 }}
-          className={classes.containerGrid}
           spacing={0}
           verticalSpacing={0}
         >

@@ -9,6 +9,8 @@ const AdminMainSettings = () => {
 	const dispatch = useAppDispatch()
     const [settings] = useFetchDataOne('/mainsettings/')
 
+	console.log(settings)
+
 	return (
 		<Container fluid>
 			<AdminModal size="md">

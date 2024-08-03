@@ -20,6 +20,7 @@ import AdminCategoriesPage from './pages/admin/AdminCategoriesPage'
 import AdminProductsPage from './pages/admin/AdminProductsPage'
 import {ProductPage, productLoader} from './pages/ProductPage'
 import AdminInfoPage from './pages/admin/AdminInfoPage'
+import AdminAboutPage from './pages/admin/AdminAboutPage'
 import AdminPartnersPage from './pages/admin/AdminPartnersPage'
 import AdminMainSettings from './pages/admin/AdminMainSettings'
 import { useEffect } from 'react'
@@ -84,6 +85,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminInfoPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='about'
+						element={
+							<RequireAuth>
+								<AdminAboutPage />
 							</RequireAuth>
 						}
 					/>

@@ -1,8 +1,8 @@
-import { ActionIcon, Box, Button, Group, ScrollArea, Title, useMantineColorScheme } from "@mantine/core";
+import { ActionIcon, Box, Group, ScrollArea, useMantineColorScheme } from "@mantine/core";
 import { Pencil } from "tabler-icons-react";
 import { useAppDispatch } from "../../hooks";
 import useFetchDataOne from "../../hooks/useFetchDataOne";
-import { editedText, openModalText } from "../../store/textEditSlice";
+import { editedText } from "../../store/textEditSlice";
 import AdminModalText from "./AdminModalText";
 import AdminTextEditForm from "./AdminTextEditForm";
 
@@ -20,8 +20,7 @@ const AdminTextEdit = ({ link }: IAdminTextEditProps) => {
       <AdminModalText size="xl">
         <AdminTextEditForm link={link} />
       </AdminModalText>
-      <Group justify="space-between" mt="md" mb="md">
-        <Title>Текст</Title>
+      <Group justify="space-between" mb="md">
         <Group>
           <ActionIcon
             size="lg"
@@ -32,14 +31,14 @@ const AdminTextEdit = ({ link }: IAdminTextEditProps) => {
           >
             <Pencil size="1.2rem" />
           </ActionIcon>
-          <Button
+          {/* <Button
             variant="default"
             radius={0}
             size="md"
             onClick={() => dispatch(openModalText())}
           >
             Добавить текст
-          </Button>
+          </Button> */}
         </Group>
       </Group>
       <ScrollArea h={"80vh"} miw={"100%"} mx="auto" offsetScrollbars>
