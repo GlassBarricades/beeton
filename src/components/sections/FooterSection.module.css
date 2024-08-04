@@ -1,0 +1,10 @@
+.mobileMenu {
+    @mixin larger-than 1010px {
+        display: none;
+      }
+}
+.desctopMenu {
+    @mixin smaller-than 1010px {
+        display: none;
+      }
+}

@@ -1,3 +1,18 @@
+.burger {
+  @mixin larger-than 1009px {
+    display: none;
+  }
+}
+.headerWrap {
+  @mixin smaller-than 464px {
+    display: none;
+  }
+}
+.mobileCallBtn {
+  @mixin larger-than 464px {
+    display: none;
+  }
+}
 .control {
   display: block;
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
@@ -5,5 +20,10 @@
 
   @mixin hover {
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  }
+}
+.menuWrap {
+  @mixin smaller-than 1010px {
+    display: none;
   }
 }

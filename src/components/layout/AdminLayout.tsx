@@ -97,6 +97,13 @@ const AdminLayout = () => {
 					Основные настройки
 				</UnstyledButton>
 				<UnstyledButton
+					to="/admin/about"
+					component={NavLink}
+					className={classes.control}
+				>
+					О нас
+				</UnstyledButton>
+				<UnstyledButton
 					to="/admin/category"
 					component={NavLink}
 					className={classes.control}
