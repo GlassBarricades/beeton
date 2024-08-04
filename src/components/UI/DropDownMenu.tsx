@@ -12,12 +12,12 @@ const DropDownMenu = ({ data, title }: IDropDownMenuProps) => {
     return (
       <Anchor
         c={colorScheme === "dark" ? "gray" : "black"}
-        key={item.link}
+        key={item.uuid}
         component={Link}
-        to={`catalog/${item.link}`}
+        to={item.link ? `/catalog/${item.link}` : "/info"}
         underline="hover"
       >
-        {item.title}
+        {item.title ? item.title : item.name}
       </Anchor>
     );
   });

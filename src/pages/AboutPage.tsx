@@ -2,6 +2,7 @@ import AboutPhotoSection from "../components/sections/AboutPhotoSection";
 import FooterSection from "../components/sections/FooterSection";
 import PartnersSection from "../components/sections/PartnersSection";
 import VideoCarouselSectiont from "../components/sections/VideoCarouselSection";
+import ScrollToTop from "../helpers/ScrollToTop";
 import useFetchDataOne from "../hooks/useFetchDataOne";
 
 const AboutPage = () => {
@@ -9,6 +10,7 @@ const AboutPage = () => {
     const [text, textLoading] = useFetchDataOne("/about-text/text");
     return (
         <>
+        <ScrollToTop />
         <AboutPhotoSection image={image.image} imgL={imageLoading} text={text.text} txtL={textLoading}/>
         <VideoCarouselSectiont />
         <PartnersSection />
