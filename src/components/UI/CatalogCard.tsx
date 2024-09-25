@@ -38,9 +38,6 @@ const CatalogCard = ({ item }: ICatalogCardProps) => {
       </AspectRatio>
       <Group p="md" justify="space-between">
         <Text className={classes.title}>{item.name}</Text>
-        <Text size="md" fw={700}>
-          {item.price} руб.
-        </Text>
       </Group>
     </Card>
   );

@@ -22,6 +22,9 @@ interface IEditData {
 		adress?: string
 		adressLink?: string
 		email?: string
+		telegram?: string
+		instagram?: string
+		viber?: string
 		imageArr?: string[]
 		price?: string
 		visible?: boolean
@@ -30,7 +33,7 @@ interface IEditData {
 		aboutImage?: string
 		aboutText?: string
 	}
-	editModal: boolean,
+	editModal: boolean
 }
 
 const initialState: IEditData = {

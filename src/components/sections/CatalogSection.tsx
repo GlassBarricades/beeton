@@ -21,7 +21,7 @@ const CatalogSection = () => {
   return (
     <Container my="md" mt="xl" fluid mih={500}>
       <SimpleGrid
-        cols={{ base: 2, lg: 4 }}
+        cols={{ base: 2, lg: 3 }}
         spacing={{ base: 10, sm: "xl" }}
         verticalSpacing={{ base: "md", sm: "xl" }}
       >

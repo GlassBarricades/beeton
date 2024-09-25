@@ -24,9 +24,9 @@ const FooterSection = () => {
     field: "position",
   });
   return (
-    <Container fluid>
+    <Container fluid mb="xl">
       <Group justify="space-between" mb="xl">
-        <Logo />
+        <Logo variant="base"/>
         <SocialIcons />
       </Group>
       <Box className={classes.mobileMenu}>
@@ -38,19 +38,19 @@ const FooterSection = () => {
       </Box>
       <SimpleGrid cols={2} className={classes.desctopMenu}>
         <SimpleGrid cols={2}>
-          <SimpleGrid cols={{ base: 1, md: 2 }} verticalSpacing="xs">
+          <SimpleGrid cols={{ base: 1, md: 2 }} verticalSpacing={2}>
             {categories.map((item: any, indx: any) => {
               return (
-                <Anchor
-                  c={colorScheme === "dark" ? "gray" : "black"}
-                  key={indx}
-                  component={Link}
-                  to={`catalog/${item.link}`}
-                  underline="hover"
-                >
-                  {item.title}
-                </Anchor>
-              );
+								<Anchor
+									c={colorScheme === 'dark' ? 'gray' : 'black'}
+									key={indx}
+									component={Link}
+									to={`catalog/${item.link}`}
+									underline='hover'
+								>
+									{item.title ? item.title : item.name}
+								</Anchor>
+							)
             })}
           </SimpleGrid>
           <SimpleGrid cols={1} verticalSpacing="xs">

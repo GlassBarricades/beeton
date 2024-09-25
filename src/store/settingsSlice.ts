@@ -2,16 +2,19 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { getDatabase, ref, child, get } from "firebase/database";
 
 interface Settings {
-  mainImage: string;
-  heroText: string;
-  logo: string;
-  logoDarkTheme: string;
-  phone: string;
-  adress: string;
-  adressLink: string;
-  email: string;
-  aboutText: string;
-  aboutImage: string;
+	mainImage: string
+	heroText: string
+	logo: string
+	logoDarkTheme: string
+	phone: string
+	adress: string
+	adressLink: string
+	email: string
+	telegram: string
+	instagram: string
+	viber: string
+	aboutText: string
+	aboutImage: string
 }
 
 interface SettingsState {
