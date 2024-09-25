@@ -65,7 +65,7 @@ const MainAppLayout = () => {
           <Group h="100%" px="md">
             <Burger className={classes.burger} opened={opened} onClick={toggle} size="sm" />
             <Group justify="space-between" style={{ flex: 1 }}>
-              <Logo />
+              <Logo variant="default"/>
               <Group ml="xl" gap={0}>
                 <Group gap={0} className={classes.menuWrap}>
                   {linksItems}
