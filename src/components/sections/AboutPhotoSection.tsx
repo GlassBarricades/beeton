@@ -20,7 +20,7 @@ const AboutPhotoSection = ({image, imgL, text, txtL}: IAboutPhotoSectionProps) =
     <Container fluid>
       <SimpleGrid cols={{ base: 1, md: 2 }} mt="xl">
         <div className={classes.imageWrap}>
-          {imgL ? <Loader color="blue" type="dots" /> : <Image src={image} />}
+          {imgL ? <Loader color="blue" type="dots" /> : <Image mah={900} src={image} />}
         </div>
         <Center>
           <Stack className={classes.textWrap} ml="md">

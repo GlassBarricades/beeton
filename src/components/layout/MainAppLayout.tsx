@@ -21,13 +21,14 @@ const MainAppLayout = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const links = [
-    { title: "Главная", link: "/" },
-    { title: "О нас", link: "/about" },
-    { title: "Каталог", link: "/catalog" },
-    { title: "Контакты", link: "/contacts" },
-    { title: "Информация", link: "/info" },
-    { title: "Админка", link: "/admin" },
-  ];
+		{ title: 'Главная', link: '/' },
+		{ title: 'О нас', link: '/about' },
+		{ title: 'Каталог', link: '/catalog' },
+		{ title: 'Дизайнерам', link: '/for-designers' },
+		{ title: 'Контакты', link: '/contacts' },
+		{ title: 'Информация', link: '/info' },
+		{ title: 'Админка', link: '/admin' },
+	]
 
   const linksItems = links.map((item) => {
     return (

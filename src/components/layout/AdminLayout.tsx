@@ -90,42 +90,49 @@ const AdminLayout = () => {
 
 			<AppShell.Navbar py='md' px={4}>
 				<UnstyledButton
-					to="/admin/mainsettings"
+					to='/admin/mainsettings'
 					component={NavLink}
 					className={classes.control}
 				>
 					Основные настройки
 				</UnstyledButton>
 				<UnstyledButton
-					to="/admin/about"
+					to='/admin/about'
 					component={NavLink}
 					className={classes.control}
 				>
 					О нас
 				</UnstyledButton>
 				<UnstyledButton
-					to="/admin/category"
+					to='/admin/for-designers'
+					component={NavLink}
+					className={classes.control}
+				>
+					Для дизайнеров
+				</UnstyledButton>
+				<UnstyledButton
+					to='/admin/category'
 					component={NavLink}
 					className={classes.control}
 				>
 					Категории
 				</UnstyledButton>
 				<UnstyledButton
-					to="/admin/info"
+					to='/admin/info'
 					component={NavLink}
 					className={classes.control}
 				>
 					Информация
 				</UnstyledButton>
 				<UnstyledButton
-					to="/admin/partners"
+					to='/admin/partners'
 					component={NavLink}
 					className={classes.control}
 				>
 					Партнёры
 				</UnstyledButton>
 				<UnstyledButton
-					to="/admin/video"
+					to='/admin/video'
 					component={NavLink}
 					className={classes.control}
 				>

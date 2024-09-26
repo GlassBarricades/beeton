@@ -24,7 +24,7 @@ const FooterSection = () => {
     field: "position",
   });
   return (
-    <Container fluid mb="xl">
+    <Container fluid mb="xl" mt="xl">
       <Group justify="space-between" mb="xl">
         <Logo variant="base"/>
         <SocialIcons />

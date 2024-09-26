@@ -27,6 +27,8 @@ import { useEffect } from 'react'
 import { fetchSettings } from './store/settingsSlice'
 import { useAppDispatch, useAppSelector } from './hooks'
 import AdminVideoPage from './pages/admin/AdminVideoPage'
+import ForDesignersPage from './pages/ForDesignersPage'
+import AdminForDesignersPage from './pages/admin/AdminForDesignersPage'
 
 function App() {
 	const settings = useAppSelector(state => state.settings.settings)
@@ -40,10 +42,27 @@ function App() {
 		createRoutesFromElements(
 			<>
 				<Route path='/' element={<MainAppLayout />}>
-					<Route index element={<HomePage image={settings.mainImage} textHero={settings.heroText}/>} />
+					<Route
+						index
+						element={
+							<HomePage
+								image={settings.mainImage}
+								textHero={settings.heroText}
+							/>
+						}
+					/>
 					<Route path='catalog' element={<CatalogPage />} />
-					<Route path='catalog/:category' element={<CategoryPage />} loader={categoryLoader} />
-					<Route path='catalog/:category/:product' element={<ProductPage />} loader={productLoader}/>
+					<Route
+						path='catalog/:category'
+						element={<CategoryPage />}
+						loader={categoryLoader}
+					/>
+					<Route
+						path='catalog/:category/:product'
+						element={<ProductPage />}
+						loader={productLoader}
+					/>
+					<Route path='for-designers' element={<ForDesignersPage />} />
 					<Route path='about' element={<AboutPage />} />
 					<Route path='contacts' element={<ContactsPage />} />
 					<Route path='info' element={<InfoPage />} />
@@ -93,6 +112,14 @@ function App() {
 						element={
 							<RequireAuth>
 								<AdminAboutPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path='for-designers'
+						element={
+							<RequireAuth>
+								<AdminForDesignersPage />
 							</RequireAuth>
 						}
 					/>
