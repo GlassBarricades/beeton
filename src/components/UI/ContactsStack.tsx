@@ -1,11 +1,15 @@
 import { Anchor, Stack, useMantineColorScheme } from '@mantine/core'
 import { useAppSelector } from '../../hooks'
 
-const ContactsStack = () => {
+interface ContactsStackProps {
+    align?: 'flex-start' | 'center' | 'flex-end'
+}
+
+const ContactsStack = ({ align = 'flex-end' }: ContactsStackProps) => {
 	const settings = useAppSelector(state => state.settings.settings)
 	const { colorScheme } = useMantineColorScheme()
 	return (
-		<Stack align='flex-end' gap='xs' justify='flex-start'>
+		<Stack align={align} gap='xs' justify='flex-start'>
 			<Anchor
 				inline
 				c={colorScheme === 'dark' ? 'gray' : 'black'}

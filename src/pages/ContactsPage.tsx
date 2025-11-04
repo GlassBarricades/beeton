@@ -1,17 +1,37 @@
-import { Center, Container, Paper, SimpleGrid } from "@mantine/core";
+import { Center, Container, Paper, SimpleGrid, Stack, Title } from "@mantine/core";
 import ContactsStack from "../components/UI/ContactsStack";
+import useFetchSortedData from "../hooks/useFetchSortedData";
 import classes from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
+  const [information, loading] = useFetchSortedData({
+    url: "/information",
+    field: "position",
+  });
   return (
     <div className={classes.wrapper}>
       <div className={classes.gradientOverlay}>
         <Container h={"100%"}>
           <SimpleGrid cols={{base: 1, md: 2}} h={"100%"}>
-            <div></div>
             <Center>
-                <Paper p="xl">
-              <ContactsStack />
+              <Paper p="xl">
+                {!loading ? (
+                  <Stack gap="md">
+                    {information.map((item: any, indx: any) => (
+                      <Stack key={indx} gap={4}>
+                        <Title order={4}>{item.title}</Title>
+                        <div dangerouslySetInnerHTML={{ __html: item.content }}></div>
+                      </Stack>
+                    ))}
+                  </Stack>
+                ) : (
+                  "Загрузка ..."
+                )}
+              </Paper>
+            </Center>
+            <Center>
+              <Paper p="xl">
+                <ContactsStack align="center" />
               </Paper>
             </Center>
           </SimpleGrid>

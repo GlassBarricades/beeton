@@ -1,10 +1,7 @@
 import {
-	ActionIcon,
   AppShell,
   Burger,
-  Button,
   Group,
-  Modal,
   UnstyledButton,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -12,21 +9,22 @@ import classes from "./MainAppLayout.module.css";
 import { Outlet, NavLink } from "react-router-dom";
 import { ThemeChange } from "../UI/ThemeChange";
 import Logo from "../UI/Logo";
-import { useState } from "react";
-import CallForm from "../CallForm";
-import { Phone } from "tabler-icons-react";
+// import { useState } from "react";
+// import CallForm from "../CallForm";
+// import { Phone } from "tabler-icons-react";
 
 const MainAppLayout = () => {
   const [opened, { toggle, close }] = useDisclosure();
-  const [openModal, setOpenModal] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);
 
   const links = [
 		{ title: 'Главная', link: '/' },
 		{ title: 'О нас', link: '/about' },
-		{ title: 'Каталог', link: '/catalog' },
+		{ title: 'Изделия', link: '/catalog' },
 		{ title: 'Дизайнерам', link: '/for-designers' },
+		{ title: 'Блог', link: '/blog' },
 		{ title: 'Контакты', link: '/contacts' },
-		{ title: 'Информация', link: '/info' },
+		// { title: 'Информация', link: '/info' },
 		{ title: 'Админка', link: '/admin' },
 	]
 
@@ -46,13 +44,13 @@ const MainAppLayout = () => {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         opened={openModal}
         onClose={() => setOpenModal(false)}
         title="Форма заказа звонка"
       >
         <CallForm />
-      </Modal>
+      </Modal> */}
       <AppShell
         header={{ height: 60 }}
         navbar={{
@@ -71,7 +69,7 @@ const MainAppLayout = () => {
                 <Group gap={0} className={classes.menuWrap}>
                   {linksItems}
                 </Group>
-                <ActionIcon
+                {/* <ActionIcon
                   variant="outline"
                   color="green"
                   size="xl"
@@ -83,8 +81,8 @@ const MainAppLayout = () => {
                   <Phone
                     style={{ width: "70%", height: "70%" }}
                   />
-                </ActionIcon>
-                <Button
+                </ActionIcon> */}
+                {/* <Button
                   onClick={() => setOpenModal(true)}
                   ml="md"
                   variant="default"
@@ -93,7 +91,7 @@ const MainAppLayout = () => {
 				  className={classes.headerWrap}
                 >
                   Заказать звонок
-                </Button>
+                </Button> */}
                 <ThemeChange />
               </Group>
             </Group>

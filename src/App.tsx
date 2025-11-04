@@ -13,6 +13,8 @@ import AboutPage from './pages/AboutPage'
 import ContactsPage from './pages/ContactsPage'
 import {CategoryPage, categoryLoader} from './pages/CategoryPage'
 import InfoPage from './pages/InfoPage'
+import BlogPage from './pages/BlogPage'
+import BlogPostPage from './pages/BlogPostPage'
 import LoginPage from './pages/LoginPage'
 import RequireAuth from './hoc/RequireAuth'
 import AdminLayout from './components/layout/AdminLayout'
@@ -29,6 +31,7 @@ import { useAppDispatch, useAppSelector } from './hooks'
 import AdminVideoPage from './pages/admin/AdminVideoPage'
 import ForDesignersPage from './pages/ForDesignersPage'
 import AdminForDesignersPage from './pages/admin/AdminForDesignersPage'
+import AdminBlogPage from './pages/admin/AdminBlogPage'
 
 function App() {
 	const settings = useAppSelector(state => state.settings.settings)
@@ -64,6 +67,8 @@ function App() {
 					/>
 					<Route path='for-designers' element={<ForDesignersPage />} />
 					<Route path='about' element={<AboutPage />} />
+					<Route path='blog' element={<BlogPage />} />
+					<Route path='blog/:slug' element={<BlogPostPage />} />
 					<Route path='contacts' element={<ContactsPage />} />
 					<Route path='info' element={<InfoPage />} />
 				</Route>
@@ -75,6 +80,14 @@ function App() {
 						</RequireAuth>
 					}
 				>
+					<Route
+						path='blog'
+						element={
+							<RequireAuth>
+								<AdminBlogPage />
+							</RequireAuth>
+						}
+					/>
 					<Route
 						index
 						element={

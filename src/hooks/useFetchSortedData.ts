@@ -16,13 +16,16 @@ const useFetchSortedData = ({ url, field }: { url: string; field: string }) => {
 		setLoading(true)
 		onValue(ref(db, url), snapshot => {
 			setData([])
-			const dataValue = Object.values(snapshot.val()).sort((a: any, b: any) =>
+			const raw = snapshot.val()
+			if (!raw) {
+				setLoading(false)
+				return
+			}
+			const dataValue = Object.values(raw).sort((a: any, b: any) =>
 				a[field] > b[field] ? 1 : -1
 			)
-			if (dataValue !== null) {
-				dataValue.map(item => setData((oldArray: any) => [...oldArray, item]))
-				setLoading(false)
-			}
+			dataValue.map(item => setData((oldArray: any) => [...oldArray, item]))
+			setLoading(false)
 		})
 	}
 

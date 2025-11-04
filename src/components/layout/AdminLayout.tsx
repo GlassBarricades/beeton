@@ -125,6 +125,13 @@ const AdminLayout = () => {
 					Информация
 				</UnstyledButton>
 				<UnstyledButton
+					to='/admin/blog'
+					component={NavLink}
+					className={classes.control}
+				>
+					Блог
+				</UnstyledButton>
+				<UnstyledButton
 					to='/admin/partners'
 					component={NavLink}
 					className={classes.control}
