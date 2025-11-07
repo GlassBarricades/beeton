@@ -49,16 +49,18 @@ const MainAppLayout = () => {
         }}
       >
         <AppShell.Header>
-          <Group h="100%" px="md">
+          <Group h="100%" px="md" justify="space-between" gap="sm">
             <Burger className={classes.burger} opened={opened} onClick={toggle} size="sm" />
-            <Group justify="space-between" style={{ flex: 1 }}>
-              <Logo variant="default"/>
-              <Group ml="xl" gap={0}>
-                <Group gap={0} className={classes.menuWrap}>
-                  {linksItems}
-                </Group>
-                <ThemeChange />
+            <div className={classes.logoWrap}>
+              <Logo variant="default" />
+            </div>
+            <Group gap="sm" className={classes.actions}>
+              <Group gap={0} className={classes.menuWrap}>
+                {linksItems}
               </Group>
+              <div className={classes.themeToggle}>
+                <ThemeChange />
+              </div>
             </Group>
           </Group>
         </AppShell.Header>

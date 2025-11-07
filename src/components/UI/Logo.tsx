@@ -15,7 +15,7 @@ const Logo = ({ variant }: ILogoProps) => {
 			{colorScheme === 'light' ? (
 				<Image
 					h={isHero ? undefined : 60}
-					maw={isHero ? 320 : 220}
+					maw={isHero ? 320 : 200}
 					w={isHero ? '80%' : '70%'}
 					fit={isHero ? 'contain' : 'contain'}
 					src={settings.logo}
@@ -24,7 +24,7 @@ const Logo = ({ variant }: ILogoProps) => {
 			) : (
 				<Image
 					h={isHero ? undefined : 60}
-					maw={isHero ? 320 : 220}
+					maw={isHero ? 320 : 200}
 					w={isHero ? '80%' : '70%'}
 					fit={isHero ? 'contain' : 'contain'}
 					src={settings.logoDarkTheme}

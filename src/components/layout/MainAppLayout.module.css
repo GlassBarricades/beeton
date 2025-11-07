@@ -19,11 +19,43 @@
   font-weight: 500;
 
   @mixin hover {
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+    background-color: light-dark(
+      var(--mantine-color-gray-0),
+      var(--mantine-color-dark-6)
+    );
   }
 }
 .menuWrap {
   @mixin smaller-than 1010px {
     display: none;
   }
+}
+
+.logoWrap {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  @mixin larger-than 1010px {
+    justify-content: flex-start;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-left: var(--mantine-spacing-xl);
+
+  @mixin smaller-than 600px {
+    gap: var(--mantine-spacing-xs);
+  }
+
+  @mixin smaller-than 1010px {
+    margin-left: 0;
+  }
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
 }
