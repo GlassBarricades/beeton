@@ -9,17 +9,24 @@ interface ILogoProps {
 const Logo = ({ variant }: ILogoProps) => {
 	const settings = useAppSelector(state => state.settings.settings)
 	const { colorScheme } = useMantineColorScheme()
+	const isHero = variant === 'hero'
 	return (
-		<Link to='/'>
+		<Link to='/' style={{ display: 'inline-flex', justifyContent: 'center' }}>
 			{colorScheme === 'light' ? (
 				<Image
-					h={variant === 'hero' ? undefined : 60}
+					h={isHero ? undefined : 60}
+					maw={isHero ? 320 : undefined}
+					w={isHero ? '80%' : undefined}
+					fit={isHero ? 'contain' : undefined}
 					src={settings.logo}
 					alt='logo'
 				/>
 			) : (
 				<Image
-					h={variant === 'hero' ? undefined : 60}
+					h={isHero ? undefined : 60}
+					maw={isHero ? 320 : undefined}
+					w={isHero ? '80%' : undefined}
+					fit={isHero ? 'contain' : undefined}
 					src={settings.logoDarkTheme}
 					alt='logo'
 				/>

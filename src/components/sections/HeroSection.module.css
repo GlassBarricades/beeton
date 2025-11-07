@@ -1,21 +1,21 @@
 .heroCard {
-    position: relative;
+  position: relative;
 }
 .heroSocialIcons {
-    bottom: 8px;
-    right: 8px;
-    height: 60px;
-    width: 170px;
-    position: absolute;
-    border-radius: 35px 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  bottom: 8px;
+  right: 8px;
+  height: 60px;
+  width: 170px;
+  position: absolute;
+  border-radius: 35px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .heroImage {
-    height: 80vh;
+  height: 80vh;
 
-    @media (max-width: $mantine-breakpoint-sm) {
+  @media (max-width: $mantine-breakpoint-sm) {
     height: 50vh;
   }
 }
@@ -26,10 +26,17 @@
   left: 0;
   right: 0;
   @mixin dark {
-    background: linear-gradient(90deg, rgb(33, 37, 41) 0%, rgba(255,255,255,0) 50%);
-    
+    background: linear-gradient(
+      90deg,
+      rgb(33, 37, 41) 0%,
+      rgba(255, 255, 255, 0) 50%
+    );
   }
   @mixin light {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 50%
+    );
   }
 }
