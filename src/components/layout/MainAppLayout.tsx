@@ -9,13 +9,9 @@ import classes from "./MainAppLayout.module.css";
 import { Outlet, NavLink } from "react-router-dom";
 import { ThemeChange } from "../UI/ThemeChange";
 import Logo from "../UI/Logo";
-// import { useState } from "react";
-// import CallForm from "../CallForm";
-// import { Phone } from "tabler-icons-react";
 
 const MainAppLayout = () => {
   const [opened, { toggle, close }] = useDisclosure();
-  // const [openModal, setOpenModal] = useState(false);
 
   const links = [
 		{ title: 'Главная', link: '/' },
@@ -24,7 +20,6 @@ const MainAppLayout = () => {
 		{ title: 'Дизайнерам', link: '/for-designers' },
 		{ title: 'Блог', link: '/blog' },
 		{ title: 'Контакты', link: '/contacts' },
-		// { title: 'Информация', link: '/info' },
 		{ title: 'Админка', link: '/admin' },
 	]
 
@@ -44,13 +39,6 @@ const MainAppLayout = () => {
 
   return (
     <>
-      {/* <Modal
-        opened={openModal}
-        onClose={() => setOpenModal(false)}
-        title="Форма заказа звонка"
-      >
-        <CallForm />
-      </Modal> */}
       <AppShell
         header={{ height: 60 }}
         navbar={{
@@ -58,7 +46,6 @@ const MainAppLayout = () => {
           breakpoint: "xl",
           collapsed: { desktop: true, mobile: !opened },
         }}
-        // padding="xs"
       >
         <AppShell.Header>
           <Group h="100%" px="md">
@@ -69,29 +56,6 @@ const MainAppLayout = () => {
                 <Group gap={0} className={classes.menuWrap}>
                   {linksItems}
                 </Group>
-                {/* <ActionIcon
-                  variant="outline"
-                  color="green"
-                  size="xl"
-                  radius="xl"
-                  aria-label="Заказать звонок"
-				  onClick={() => setOpenModal(true)}
-				  className={classes.mobileCallBtn}
-                >
-                  <Phone
-                    style={{ width: "70%", height: "70%" }}
-                  />
-                </ActionIcon> */}
-                {/* <Button
-                  onClick={() => setOpenModal(true)}
-                  ml="md"
-                  variant="default"
-                  radius={0}
-                  size="md"
-				  className={classes.headerWrap}
-                >
-                  Заказать звонок
-                </Button> */}
                 <ThemeChange />
               </Group>
             </Group>
