@@ -38,7 +38,7 @@ const AdminVideoForm = () => {
 		image: '',
 	},
 		validate: {
-			name: isNotEmpty('Поле не должно быть пустым'),
+			name: isNotEmpty('Поле не должно быть пустым!'),
 		},
 	})
 
