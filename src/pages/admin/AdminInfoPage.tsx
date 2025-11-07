@@ -18,14 +18,14 @@ const AdminInfoPage = () => {
         <AdminInfoForm />
       </AdminModal>
       <Group justify="space-between" mt="md" mb="md">
-        <Title>Информация</Title>
+        <Title>Контакты</Title>
         <Button
           variant="default"
           radius={0}
           size="md"
           onClick={() => dispatch(openModal())}
         >
-          Добавить Информацию
+          Добавить информацию на странице контактов
         </Button>
       </Group>
       {!loading ? <InfoAccordion data={information} variant="admin"/> : 'Загрузка ...'}

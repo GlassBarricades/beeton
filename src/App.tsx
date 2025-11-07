@@ -156,13 +156,13 @@ function App() {
 						/>
 					</Route>
 					<Route
-						path='info'
+						path='contacts'
 						element={
 							<RequireAuth>
 								<AdminInfoPage />
 							</RequireAuth>
 						}
-						handle={{ breadcrumb: 'Информация' }}
+						handle={{ breadcrumb: 'Контакты' }}
 					/>
 					<Route
 						path='about'

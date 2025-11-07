@@ -73,8 +73,8 @@ const AdminVideoForm = () => {
 				{...form.getInputProps('name')}
 			/>
             <TextInput
-				placeholder='Ссылка'
-				label='Ссылка'
+				placeholder='ID видео'
+				label='ID видео'
 				withAsterisk
                 disabled={edit ? true : false}
 				{...form.getInputProps('link')}

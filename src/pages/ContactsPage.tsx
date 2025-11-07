@@ -2,14 +2,20 @@ import { Center, Container, Paper, SimpleGrid, Stack, Title } from "@mantine/cor
 import ContactsStack from "../components/UI/ContactsStack";
 import useFetchSortedData from "../hooks/useFetchSortedData";
 import classes from "./ContactsPage.module.css";
+import { useAppSelector } from "../hooks";
 
 const ContactsPage = () => {
   const [information, loading] = useFetchSortedData({
     url: "/information",
     field: "position",
   });
+  const settings = useAppSelector((state) => state.settings.settings);
+  const contactsBackgroundImage = settings?.contactsBackgroundImage;
+  const wrapperStyle = contactsBackgroundImage
+    ? { backgroundImage: `url(${contactsBackgroundImage})` }
+    : undefined;
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} style={wrapperStyle}>
       <div className={classes.gradientOverlay}>
         <Container h={"100%"}>
           <SimpleGrid cols={{base: 1, md: 2}} h={"100%"}>

@@ -18,31 +18,14 @@ interface IDataObj {
 	telegram: string
 	instagram: string
 	viber: string
+	contactsBackgroundImage: string
 }
 
 const AdminMainSettingsForm = () => {
   const edit = useAppSelector((state) => state.edit.edit);
-  const editData = useAppSelector((state) => state.edit.editData);
+  const editData = useAppSelector((state) => state.edit.editData) as Partial<IDataObj>;
   const editUuid = useAppSelector((state) => state.edit.editUuid);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (edit) {
-      form.setValues({
-        mainImage: editData.mainImage,
-        heroText: editData.heroText,
-        logo: editData.logo,
-        logoDarkTheme: editData.logoDarkTheme,
-        phone: editData.phone,
-        adress: editData.adress,
-        adressLink: editData.adressLink,
-        email: editData.email,
-        telegram: editData.telegram,
-        instagram: editData.instagram,
-        viber: editData.viber
-      });
-    }
-  }, [edit]);
 
   const form = useForm<IDataObj>({
 		initialValues: {
@@ -57,8 +40,31 @@ const AdminMainSettingsForm = () => {
 			telegram: '',
 			instagram: '',
 			viber: '',
+			contactsBackgroundImage: '',
 		},
 	})
+
+	useEffect(() => {
+		if (edit && editData) {
+			form.setValues({
+				mainImage: editData.mainImage || '',
+				heroText: editData.heroText || '',
+				logo: editData.logo || '',
+				logoDarkTheme: editData.logoDarkTheme || '',
+				phone: editData.phone || '',
+				adress: editData.adress || '',
+				adressLink: editData.adressLink || '',
+				email: editData.email || '',
+				telegram: editData.telegram || '',
+				instagram: editData.instagram || '',
+				viber: editData.viber || '',
+				contactsBackgroundImage: editData.contactsBackgroundImage || '',
+			});
+		} else if (!edit) {
+			form.reset();
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [edit, editData]);
 
   return (
 		<form
@@ -150,6 +156,11 @@ const AdminMainSettingsForm = () => {
 				withAsterisk
 				{...form.getInputProps('viber')}
 			/>
+		<TextInput
+			placeholder='Фон для страницы контактов'
+			label='Фон для страницы контактов'
+			{...form.getInputProps('contactsBackgroundImage')}
+		/>
 			<Button mt='md' type='submit' variant='default' radius={0} size='md'>
 				{edit ? 'Сохранить' : 'Отправить'}
 			</Button>

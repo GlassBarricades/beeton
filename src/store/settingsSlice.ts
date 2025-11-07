@@ -15,6 +15,7 @@ interface Settings {
 	viber: string
 	aboutText: string
 	aboutImage: string
+	contactsBackgroundImage?: string
 }
 
 interface SettingsState {

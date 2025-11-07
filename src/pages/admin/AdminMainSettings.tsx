@@ -67,6 +67,9 @@ const AdminMainSettings = () => {
 							{settings.mainImage ? (<Image src={settings.mainImage} alt='main' h={120} fit='cover' radius={0} />) : null}
 							{settings.logo ? (<Image src={settings.logo} alt='logo' h={60} fit='contain' radius={0} />) : null}
 							{settings.logoDarkTheme ? (<Image src={settings.logoDarkTheme} alt='logo dark' h={60} fit='contain' radius={0} />) : null}
+							{settings.contactsBackgroundImage ? (
+								<Image src={settings.contactsBackgroundImage} alt='contacts background' h={120} fit='cover' radius={0} />
+							) : null}
 						</Stack>
 					</Paper>
 				</SimpleGrid>

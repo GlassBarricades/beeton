@@ -25,6 +25,7 @@ interface IEditData {
 		telegram?: string
 		instagram?: string
 		viber?: string
+		contactsBackgroundImage?: string
 		imageArr?: string[]
 		price?: string
 		visible?: boolean

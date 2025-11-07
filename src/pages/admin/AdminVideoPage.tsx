@@ -45,7 +45,7 @@ import AdminVideoForm from "../../components/admin/AdminVideoForm";
             </Group>
             <AdminTable
               rows={rows}
-              columnArray={["Сортировка", "Название", "Картинки", "Ссылка", "Настройки"]}
+              columnArray={["Сортировка", "Название", "Картинки", "ID видео", "Настройки"]}
               loading={loading}
             />
       </Container>

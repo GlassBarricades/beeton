@@ -128,11 +128,11 @@ const AdminLayout = () => {
 					Категории
 				</UnstyledButton>
 				<UnstyledButton
-					to='/admin/info'
+					to='/admin/contacts'
 					component={NavLink}
 					className={classes.control}
 				>
-					Информация
+					Контакты
 				</UnstyledButton>
 				<UnstyledButton
 					to='/admin/blog'
