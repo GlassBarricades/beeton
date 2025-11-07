@@ -1,5 +1,5 @@
 import { child, get, getDatabase, ref } from "firebase/database";
-import { useLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import CatalogHero from "../components/catalog/CatalogHero";
 import CatalogGrid from "../components/CatalogGrid";
 import { Container } from "@mantine/core";
@@ -10,14 +10,14 @@ interface ILoaderData {
 }
 
 const CategoryPage = () => {
-  const { dataBase } = useLoaderData() as ILoaderData;
-  const dataProducts: any  = dataBase.products ? Object.values(dataBase.products) : undefined
-  console.log(dataBase.products)
+  const loaderData = useRouteLoaderData("catalog-category") as ILoaderData | undefined;
+  const dataBase = loaderData?.dataBase;
+  const dataProducts: any = dataBase?.products ? Object.values(dataBase.products) : undefined;
   return (
     <>
     <ScrollToTop />
-    <CatalogHero name={dataBase.name} image={dataBase.image}/>
-    {dataBase.products && !dataBase.inside ? <CatalogGrid data={dataProducts}/> : <Container><div dangerouslySetInnerHTML={{ __html: dataBase.content }}></div></Container>}
+    <CatalogHero name={dataBase?.name} image={dataBase?.image}/>
+    {dataBase?.products && !dataBase?.inside ? <CatalogGrid data={dataProducts}/> : <Container><div dangerouslySetInnerHTML={{ __html: dataBase?.content || "" }}></div></Container>}
     </>
   );
 };

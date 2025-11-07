@@ -10,6 +10,7 @@ import { useDisclosure } from '@mantine/hooks'
 import classes from './AdminLayout.module.css'
 import { Outlet, NavLink } from 'react-router-dom'
 import { ThemeChange } from '../UI/ThemeChange'
+import AppBreadcrumbs from '../UI/AppBreadcrumbs'
 import useFetchSortedData from '../../hooks/useFetchSortedData'
 
 const AdminLayout = () => {
@@ -22,7 +23,16 @@ const AdminLayout = () => {
 	)
 
 	const linksItemsMain = categories.map((item: any) => {
-		return <UnstyledButton key={item.link} to={item.link} component={NavLink} className={classes.control}>{item.name}</UnstyledButton>
+		return (
+			<UnstyledButton
+				key={item.link}
+				to={`/admin/category/${item.link}`}
+				component={NavLink}
+				className={classes.control}
+			>
+				{item.name}
+			</UnstyledButton>
+		)
 	})
 
 	const links = [
@@ -149,6 +159,7 @@ const AdminLayout = () => {
 			</AppShell.Navbar>
 
 			<AppShell.Main>
+				<AppBreadcrumbs />
 				<Outlet />
 			</AppShell.Main>
 		</AppShell>

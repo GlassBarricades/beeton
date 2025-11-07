@@ -15,18 +15,18 @@ const Logo = ({ variant }: ILogoProps) => {
 			{colorScheme === 'light' ? (
 				<Image
 					h={isHero ? undefined : 60}
-					maw={isHero ? 220 : undefined}
-					w={isHero ? '80%' : undefined}
-					fit={isHero ? 'contain' : undefined}
+					maw={isHero ? 320 : 220}
+					w={isHero ? '80%' : '70%'}
+					fit={isHero ? 'contain' : 'contain'}
 					src={settings.logo}
 					alt='logo'
 				/>
 			) : (
 				<Image
 					h={isHero ? undefined : 60}
-					maw={isHero ? 220 : undefined}
-					w={isHero ? '80%' : undefined}
-					fit={isHero ? 'contain' : undefined}
+					maw={isHero ? 320 : 220}
+					w={isHero ? '80%' : '70%'}
+					fit={isHero ? 'contain' : 'contain'}
 					src={settings.logoDarkTheme}
 					alt='logo'
 				/>

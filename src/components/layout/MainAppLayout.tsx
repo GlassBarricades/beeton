@@ -9,6 +9,7 @@ import classes from "./MainAppLayout.module.css";
 import { Outlet, NavLink } from "react-router-dom";
 import { ThemeChange } from "../UI/ThemeChange";
 import Logo from "../UI/Logo";
+import AppBreadcrumbs from "../UI/AppBreadcrumbs";
 
 const MainAppLayout = () => {
   const [opened, { toggle, close }] = useDisclosure();
@@ -67,6 +68,7 @@ const MainAppLayout = () => {
         </AppShell.Navbar>
 
         <AppShell.Main>
+          <AppBreadcrumbs />
           <Outlet />
         </AppShell.Main>
       </AppShell>

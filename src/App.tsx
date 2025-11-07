@@ -1,6 +1,7 @@
 import './App.css'
 import {
 	Navigate,
+	Outlet,
 	Route,
 	RouterProvider,
 	createBrowserRouter,
@@ -14,7 +15,7 @@ import ContactsPage from './pages/ContactsPage'
 import {CategoryPage, categoryLoader} from './pages/CategoryPage'
 import InfoPage from './pages/InfoPage'
 import BlogPage from './pages/BlogPage'
-import BlogPostPage from './pages/BlogPostPage'
+import BlogPostPage, { blogPostLoader } from './pages/BlogPostPage'
 import LoginPage from './pages/LoginPage'
 import RequireAuth from './hoc/RequireAuth'
 import AdminLayout from './components/layout/AdminLayout'
@@ -33,6 +34,21 @@ import ForDesignersPage from './pages/ForDesignersPage'
 import AdminForDesignersPage from './pages/admin/AdminForDesignersPage'
 import AdminBlogPage from './pages/admin/AdminBlogPage'
 
+const formatSlug = (value?: string) =>
+	value ? value.replace(/-/g, ' ') : undefined
+
+const categoryBreadcrumb = (match: any) =>
+	match?.data?.dataBase?.name ?? formatSlug(match?.params?.category) ?? 'Категория'
+
+const productBreadcrumb = (match: any) =>
+	match?.data?.productDataBase?.name ?? formatSlug(match?.params?.product) ?? 'Изделие'
+
+const blogPostBreadcrumb = (match: any) =>
+	match?.data?.post?.title ?? formatSlug(match?.params?.slug) ?? 'Статья'
+
+const adminCategoryBreadcrumb = (match: any) =>
+	formatSlug(match?.params?.category) ?? 'Категория'
+
 function App() {
 	const settings = useAppSelector(state => state.settings.settings)
 	const dispatch = useAppDispatch()
@@ -44,7 +60,7 @@ function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<>
-				<Route path='/' element={<MainAppLayout />}>
+				<Route path='/' element={<MainAppLayout />} handle={{ breadcrumb: 'Главная' }}>
 					<Route
 						index
 						element={
@@ -54,23 +70,37 @@ function App() {
 							/>
 						}
 					/>
-					<Route path='catalog' element={<CatalogPage />} />
-					<Route
-						path='catalog/:category'
-						element={<CategoryPage />}
-						loader={categoryLoader}
-					/>
-					<Route
-						path='catalog/:category/:product'
-						element={<ProductPage />}
-						loader={productLoader}
-					/>
-					<Route path='for-designers' element={<ForDesignersPage />} />
-					<Route path='about' element={<AboutPage />} />
-					<Route path='blog' element={<BlogPage />} />
-					<Route path='blog/:slug' element={<BlogPostPage />} />
+					<Route path='catalog' element={<Outlet />} handle={{ breadcrumb: 'Каталог' }}>
+						<Route index element={<CatalogPage />} />
+						<Route
+							path=':category'
+							id='catalog-category'
+							loader={categoryLoader}
+							handle={{ breadcrumb: categoryBreadcrumb }}
+							element={<Outlet />}
+						>
+							<Route index element={<CategoryPage />} />
+							<Route
+								path=':product'
+								element={<ProductPage />}
+								loader={productLoader}
+								handle={{ breadcrumb: productBreadcrumb }}
+							/>
+						</Route>
+					</Route>
+					<Route path='for-designers' element={<ForDesignersPage />} handle={{ breadcrumb: 'Для дизайнеров' }} />
+					<Route path='about' element={<AboutPage />} handle={{ breadcrumb: 'О нас' }} />
+					<Route path='blog' element={<Outlet />} handle={{ breadcrumb: 'Блог' }}>
+						<Route index element={<BlogPage />} />
+						<Route
+							path=':slug'
+							element={<BlogPostPage />}
+							loader={blogPostLoader}
+							handle={{ breadcrumb: blogPostBreadcrumb }}
+						/>
+					</Route>
 					<Route path='contacts' element={<ContactsPage />} />
-					<Route path='info' element={<InfoPage />} />
+					<Route path='info' element={<InfoPage />} handle={{ breadcrumb: 'Информация' }} />
 				</Route>
 				<Route
 					path='admin'
@@ -79,6 +109,7 @@ function App() {
 							<AdminLayout />
 						</RequireAuth>
 					}
+					handle={{ breadcrumb: 'Админка' }}
 				>
 					<Route
 						path='blog'
@@ -87,6 +118,7 @@ function App() {
 								<AdminBlogPage />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'Блог' }}
 					/>
 					<Route
 						index
@@ -100,18 +132,29 @@ function App() {
 						path='category'
 						element={
 							<RequireAuth>
-								<AdminCategoriesPage />
+								<Outlet />
 							</RequireAuth>
 						}
-					/>
-					<Route
-						path=':category'
-						element={
-							<RequireAuth>
-								<AdminProductsPage />
-							</RequireAuth>
-						}
-					/>
+						handle={{ breadcrumb: 'Категории' }}
+					>
+						<Route
+							index
+							element={
+								<RequireAuth>
+									<AdminCategoriesPage />
+								</RequireAuth>
+							}
+						/>
+						<Route
+							path=':category'
+							element={
+								<RequireAuth>
+									<AdminProductsPage />
+								</RequireAuth>
+							}
+							handle={{ breadcrumb: adminCategoryBreadcrumb }}
+						/>
+					</Route>
 					<Route
 						path='info'
 						element={
@@ -119,6 +162,7 @@ function App() {
 								<AdminInfoPage />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'Информация' }}
 					/>
 					<Route
 						path='about'
@@ -127,6 +171,7 @@ function App() {
 								<AdminAboutPage />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'О нас' }}
 					/>
 					<Route
 						path='for-designers'
@@ -135,6 +180,7 @@ function App() {
 								<AdminForDesignersPage />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'Для дизайнеров' }}
 					/>
 					<Route
 						path='partners'
@@ -143,6 +189,7 @@ function App() {
 								<AdminPartnersPage />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'Партнёры' }}
 					/>
 					<Route
 						path='video'
@@ -151,6 +198,7 @@ function App() {
 								<AdminVideoPage />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'Видео' }}
 					/>
 					<Route
 						path='mainsettings'
@@ -159,6 +207,7 @@ function App() {
 								<AdminMainSettings />
 							</RequireAuth>
 						}
+						handle={{ breadcrumb: 'Основные настройки' }}
 					/>
 				</Route>
 				<Route path={'/login'} element={<LoginPage />} />

@@ -1,4 +1,5 @@
 import { Container, Paper, Stack, Title, Text, BackgroundImage } from "@mantine/core";
+import { child, get, getDatabase, ref } from "firebase/database";
 import { useParams } from "react-router-dom";
 import ScrollToTop from "../helpers/ScrollToTop";
 import FooterSection from "../components/sections/FooterSection";
@@ -38,4 +39,26 @@ const BlogPostPage = () => {
 
 export default BlogPostPage;
 
+const blogPostLoader = async ({ params }: any) => {
+  const slug = params?.slug;
+  if (!slug) {
+    return { post: null };
+  }
 
+  const dbRef = ref(getDatabase());
+  let post: any = null;
+
+  await get(child(dbRef, `blog/${slug}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        post = snapshot.val();
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  return { post };
+};
+
+export { blogPostLoader };
