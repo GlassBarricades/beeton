@@ -11,11 +11,11 @@ const Logo = ({ variant }: ILogoProps) => {
 	const { colorScheme } = useMantineColorScheme()
 	const isHero = variant === 'hero'
 	return (
-		<Link to='/' style={{ display: 'inline-flex', justifyContent: 'center' }}>
+		<Link to='/' style={{ display: 'inline-flex'}}>
 			{colorScheme === 'light' ? (
 				<Image
 					h={isHero ? undefined : 60}
-					maw={isHero ? 320 : undefined}
+					maw={isHero ? 220 : undefined}
 					w={isHero ? '80%' : undefined}
 					fit={isHero ? 'contain' : undefined}
 					src={settings.logo}
@@ -24,7 +24,7 @@ const Logo = ({ variant }: ILogoProps) => {
 			) : (
 				<Image
 					h={isHero ? undefined : 60}
-					maw={isHero ? 320 : undefined}
+					maw={isHero ? 220 : undefined}
 					w={isHero ? '80%' : undefined}
 					fit={isHero ? 'contain' : undefined}
 					src={settings.logoDarkTheme}
