@@ -53,22 +53,6 @@ const FooterSection = () => {
 							)
             })}
           </SimpleGrid>
-          <SimpleGrid cols={1} verticalSpacing="xs">
-            {information.map((item: any, indx: any) => {
-              return (
-                <Anchor
-                  inline
-                  c={colorScheme === "dark" ? "gray" : "black"}
-                  key={indx}
-                  component={Link}
-                  to="/info"
-                  underline="hover"
-                >
-                  {item.title}
-                </Anchor>
-              );
-            })}
-          </SimpleGrid>
         </SimpleGrid>
         <SimpleGrid>
           <ContactsStack />
