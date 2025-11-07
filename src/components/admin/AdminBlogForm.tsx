@@ -51,8 +51,8 @@ const AdminBlogForm: React.FC = () => {
       visible: false,
     },
     validate: {
-      value: isNotEmpty("Поле не должно быть пустым"),
-      title: isNotEmpty("Поле не должно быть пустым"),
+      value: isNotEmpty("Поле не должно быть пустым!"),
+      title: isNotEmpty("Поле не должно быть пустым!"),
     },
   });
 
